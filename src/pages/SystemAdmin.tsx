@@ -172,7 +172,7 @@ export default function SystemAdmin() {
   };
 
   return (
-    <div>
+    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-slate-900 mb-2">系統管理與設定</h1>
         <p className="text-slate-500">RBAC、渠道憑證、預算管理、品牌設定、稽核日誌與系統通知</p>

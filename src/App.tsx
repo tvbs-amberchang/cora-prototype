@@ -305,9 +305,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="w-6 h-6" />
         </div>
         <Topbar />
-        <div className="flex-1 overflow-y-auto p-6 md:p-8">
-          <div className="max-w-[1200px] mx-auto">{children}</div>
-        </div>
+        <div className="flex-1 overflow-y-auto flex flex-col">{children}</div>
       </main>
     </div>
   );
@@ -429,7 +427,7 @@ const AlertItem = ({
 };
 
 const Dashboard = () => (
-  <div>
+  <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
     <PageHeader title="總覽儀表板" description="全站數據與行銷活動概況" />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">

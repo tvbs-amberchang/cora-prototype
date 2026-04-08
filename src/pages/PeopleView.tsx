@@ -370,7 +370,7 @@ export default function PeopleView() {
   // --- Profile Detail View ---
   if (selectedProfile) {
     return (
-      <div className="max-w-5xl mx-auto pb-12">
+      <div className="p-6 md:p-8 max-w-[1200px] mx-auto pb-12">
         {/* Header Actions */}
         <div className="flex items-center justify-between mb-6">
           <button
@@ -768,7 +768,7 @@ export default function PeopleView() {
   }
   // --- Search View ---
   return (
-    <div className="max-w-4xl mx-auto pt-8">
+    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
       <div className="text-center mb-10">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">用戶檔案</h1>
         <p className="text-slate-500 text-lg">

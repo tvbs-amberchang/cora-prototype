@@ -875,7 +875,7 @@ export default function Journeys() {
   };
   if (view === 'setup' && selectedJourney) {
     return (
-      <div className="max-w-3xl mx-auto">
+      <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
         <div className="mb-6">
           <button
             onClick={() => setView('list')}
@@ -947,7 +947,7 @@ export default function Journeys() {
   }
   if (view === 'canvas' && selectedJourney) {
     return (
-      <div className="flex flex-col h-[calc(100vh-4rem)] -m-6 md:-m-8 bg-[#f4f5f7] font-sans relative overflow-hidden">
+      <div className="flex flex-col flex-1 min-h-0 bg-[#f4f5f7] font-sans relative overflow-hidden">
         {/* Canvas Header */}
         <div className="h-14 bg-white border-b border-slate-200 flex items-center justify-between px-4 flex-shrink-0 z-20">
           <div className="flex items-center space-x-3">
@@ -1289,7 +1289,7 @@ export default function Journeys() {
   }
   // --- List View ---
   return (
-    <div>
+    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-slate-900 mb-2">
           自動化旅程

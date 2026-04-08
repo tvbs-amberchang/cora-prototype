@@ -496,7 +496,7 @@ export default function Delivery() {
 
   if (view === 'create') {
     return (
-      <div className="flex flex-col h-[calc(100vh-4rem)] -m-6 md:-m-8 bg-slate-50">
+      <div className="flex flex-col flex-1 min-h-0 bg-slate-50">
         <div className="h-14 bg-white border-b border-slate-200 flex items-center justify-between px-4">
           <div className="flex items-center space-x-3">
             <button onClick={() => setView('list')} className="p-1.5 hover:bg-slate-100 rounded text-slate-600">
@@ -769,7 +769,7 @@ export default function Delivery() {
   }
 
   return (
-    <div>
+    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-slate-900 mb-2">訊息遞送</h1>
         <p className="text-slate-500">統一管理 Push / LINE / SMS / Email 的發送任務、規則攔截與成效追蹤</p>
