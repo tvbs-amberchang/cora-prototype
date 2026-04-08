@@ -134,7 +134,7 @@ export default function DataCore() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900 mb-2">數據追蹤（Data Core）</h1>
+        <h1 className="text-2xl font-bold text-slate-900 mb-2">數據追蹤</h1>
         <p className="text-slate-500">統一事件模型、SDK 追蹤、內容屬性擷取與下游即時查詢</p>
       </div>
 

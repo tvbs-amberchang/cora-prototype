@@ -433,7 +433,7 @@ export default function Campaigns() {
               <ChevronLeft className="w-5 h-5" />
             </button>
             <h1 className="text-sm font-semibold text-slate-900">
-              {editing ? '編輯活動元件' : '建立活動元件'}
+              {editing ? '編輯行銷活動' : '建立行銷活動'}
             </h1>
           </div>
           <div className="flex items-center space-x-2">
@@ -695,7 +695,7 @@ export default function Campaigns() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900 mb-2">活動模組（Campaign Module）</h1>
+        <h1 className="text-2xl font-bold text-slate-900 mb-2">行銷活動</h1>
         <p className="text-slate-500">Engagement Core：Inline / Popup / 問卷 / 抽獎 / 簽到</p>
       </div>
 
@@ -705,7 +705,7 @@ export default function Campaigns() {
             onClick={() => startEdit(null)}
             className="px-4 py-2 bg-slate-900 text-white rounded-lg font-medium flex items-center space-x-2">
             <Plus className="w-4 h-4" />
-            <span>建立活動元件</span>
+            <span>建立行銷活動</span>
           </button>
 
           <div className="flex items-center space-x-2">
@@ -846,7 +846,7 @@ export default function Campaigns() {
       <div className="fixed inset-0 bg-slate-900/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full">
             <div className="p-6 border-b border-slate-200 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-slate-900">{configPreviewCampaign.name} 模組設定預覽</h2>
+              <h2 className="text-xl font-bold text-slate-900">{configPreviewCampaign.name} 行銷活動設定預覽</h2>
               <button onClick={() => setConfigPreviewCampaign(null)} className="text-slate-400 hover:text-slate-600">關閉</button>
             </div>
             <div className="p-6 text-sm space-y-3">

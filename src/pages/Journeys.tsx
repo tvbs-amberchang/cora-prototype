@@ -1292,7 +1292,7 @@ export default function Journeys() {
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-slate-900 mb-2">
-          自動化旅程 (Journey Engine)
+          自動化旅程
         </h1>
         <p className="text-slate-500">
           視覺化編排用戶行銷旅程，在對的時機觸發對的動作

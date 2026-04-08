@@ -771,7 +771,7 @@ export default function Delivery() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900 mb-2">訊息遞送（Message Delivery）</h1>
+        <h1 className="text-2xl font-bold text-slate-900 mb-2">訊息遞送</h1>
         <p className="text-slate-500">統一管理 Push / LINE / SMS / Email 的發送任務、規則攔截與成效追蹤</p>
       </div>
 
