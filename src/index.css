@@ -1,4 +1,5 @@
 /* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
 /* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
 @import 'tailwindcss/base';
@@ -6,3 +7,58 @@
 @import 'tailwindcss/utilities';
 
 /* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+@layer base {
+  body {
+    @apply antialiased text-slate-800;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  ::selection {
+    @apply bg-brand-100 text-brand-700;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl border border-slate-200/80 shadow-card transition-all duration-250;
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer hover:shadow-card-hover hover:border-slate-300;
+  }
+
+  .kpi-card {
+    @apply bg-white rounded-xl border border-slate-200/80 shadow-card p-5 relative overflow-hidden;
+  }
+
+  .kpi-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-500 to-accent-500;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-brand-500 text-white rounded-lg font-medium
+           hover:bg-brand-600 active:bg-brand-700
+           transition-colors duration-200 cursor-pointer
+           focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-white text-slate-700 rounded-lg font-medium
+           border border-slate-200 hover:bg-slate-50 hover:border-slate-300
+           active:bg-slate-100 transition-colors duration-200 cursor-pointer
+           focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2;
+  }
+
+  .input-base {
+    @apply w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white
+           placeholder:text-slate-400
+           focus:outline-none focus:ring-2 focus:ring-brand-200 focus:border-brand-500
+           transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}

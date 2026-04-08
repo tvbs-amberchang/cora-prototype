@@ -237,7 +237,7 @@ const averageMessagesPerUser: Record<ChannelType, number> = {
 
 const statusBadge: Record<TaskStatus, string> = {
   draft: 'bg-slate-100 text-slate-700',
-  scheduled: 'bg-blue-100 text-blue-700',
+  scheduled: 'bg-brand-100 text-brand-700',
   sending: 'bg-amber-100 text-amber-700',
   completed: 'bg-green-100 text-green-700',
   failed: 'bg-red-100 text-red-700'
@@ -252,7 +252,7 @@ const statusLabel: Record<TaskStatus, string> = {
 };
 
 const ChannelIcon = ({ channel }: {channel: ChannelType;}) =>
-channel === 'push' ? <Smartphone className="w-4 h-4 text-blue-600" /> :
+channel === 'push' ? <Smartphone className="w-4 h-4 text-brand-500" /> :
 channel === 'line' ? <MessageCircle className="w-4 h-4 text-green-600" /> :
 channel === 'sms' ? <MessageSquare className="w-4 h-4 text-orange-600" /> :
 <Mail className="w-4 h-4 text-purple-600" />;
@@ -506,7 +506,7 @@ export default function Delivery() {
           </div>
           <div className="flex items-center space-x-2">
             {[1, 2, 3, 4, 5].map((item) =>
-            <div key={item} className={`w-6 h-6 rounded-full text-xs flex items-center justify-center ${step === item ? 'bg-blue-600 text-white' : step > item ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-400'}`}>
+            <div key={item} className={`w-6 h-6 rounded-full text-xs flex items-center justify-center ${step === item ? 'bg-brand-500 text-white' : step > item ? 'bg-brand-100 text-brand-700' : 'bg-slate-100 text-slate-400'}`}>
                 {step > item ? <CheckCircle2 className="w-4 h-4" /> : item}
               </div>
             )}
@@ -523,7 +523,7 @@ export default function Delivery() {
               </button>
             }
             {step === 5 &&
-            <button onClick={completeCreate} className="px-3 py-1.5 bg-blue-600 text-white rounded text-xs flex items-center space-x-1">
+            <button onClick={completeCreate} className="px-3 py-1.5 bg-brand-500 text-white rounded text-xs flex items-center space-x-1">
                 <Send className="w-3 h-3" />
                 <span>確認發送</span>
               </button>
@@ -546,7 +546,7 @@ export default function Delivery() {
                 <button
                   key={channel}
                   onClick={() => onChannelChange(channel)}
-                  className={`text-left border rounded-lg p-3 ${selectedChannel === channel ? 'border-blue-500 bg-blue-50' : 'border-slate-200'}`}>
+                  className={`text-left border rounded-lg p-3 ${selectedChannel === channel ? 'border-brand-500 bg-brand-50' : 'border-slate-200'}`}>
                       <div className="flex items-center space-x-2 mb-1">
                         <ChannelIcon channel={channel} />
                         <span className="font-semibold text-slate-900">{channelLabel[channel]}</span>
@@ -575,7 +575,7 @@ export default function Delivery() {
                 </select>
                 <div className="border border-slate-200 rounded-lg p-4 bg-slate-50 text-sm space-y-2">
                   <div className="flex justify-between"><span>分群總人數</span><span className="font-mono">{selectedAudience.total.toLocaleString()}</span></div>
-                  <div className="flex justify-between"><span>可觸達（{channelLabel[selectedChannel]}）</span><span className="font-mono text-blue-700">{reachableCount.toLocaleString()}</span></div>
+                  <div className="flex justify-between"><span>可觸達（{channelLabel[selectedChannel]}）</span><span className="font-mono text-brand-700">{reachableCount.toLocaleString()}</span></div>
                   <div className="flex justify-between"><span>預估跳過</span><span className="font-mono text-slate-600">{skipCount.toLocaleString()}</span></div>
                 </div>
               </section>
@@ -777,7 +777,7 @@ export default function Delivery() {
 
       <div className="bg-white rounded-xl border border-slate-200 p-6 mb-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between space-y-4 md:space-y-0 mb-6">
-          <button onClick={openCreate} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center space-x-2">
+          <button onClick={openCreate} className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors font-medium flex items-center space-x-2">
             <Send className="w-4 h-4" />
             <span>建立發送任務</span>
           </button>

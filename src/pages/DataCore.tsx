@@ -139,12 +139,12 @@ export default function DataCore() {
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 p-3 mb-6 flex flex-wrap gap-2">
-        <button onClick={() => setTab('events')} className={`px-3 py-2 rounded text-sm ${tab === 'events' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>事件目錄</button>
-        <button onClick={() => setTab('sdk')} className={`px-3 py-2 rounded text-sm ${tab === 'sdk' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>SDK 追蹤能力</button>
-        <button onClick={() => setTab('content')} className={`px-3 py-2 rounded text-sm ${tab === 'content' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>內容屬性擷取</button>
-        <button onClick={() => setTab('custom')} className={`px-3 py-2 rounded text-sm ${tab === 'custom' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>自訂事件治理</button>
-        <button onClick={() => setTab('attributes')} className={`px-3 py-2 rounded text-sm ${tab === 'attributes' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>用戶屬性字典</button>
-        <button onClick={() => setTab('retention')} className={`px-3 py-2 rounded text-sm ${tab === 'retention' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>保留與查詢</button>
+        <button onClick={() => setTab('events')} className={`px-3 py-2 rounded text-sm ${tab === 'events' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>事件目錄</button>
+        <button onClick={() => setTab('sdk')} className={`px-3 py-2 rounded text-sm ${tab === 'sdk' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>SDK 追蹤能力</button>
+        <button onClick={() => setTab('content')} className={`px-3 py-2 rounded text-sm ${tab === 'content' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>內容屬性擷取</button>
+        <button onClick={() => setTab('custom')} className={`px-3 py-2 rounded text-sm ${tab === 'custom' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>自訂事件治理</button>
+        <button onClick={() => setTab('attributes')} className={`px-3 py-2 rounded text-sm ${tab === 'attributes' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>用戶屬性字典</button>
+        <button onClick={() => setTab('retention')} className={`px-3 py-2 rounded text-sm ${tab === 'retention' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>保留與查詢</button>
       </div>
 
       {tab === 'events' &&
@@ -174,7 +174,7 @@ export default function DataCore() {
             </div>
             <div className="space-y-2 max-h-[520px] overflow-y-auto pr-1">
               {filteredEvents.map((event) =>
-            <button key={event.name} onClick={() => setSelectedEvent(event)} className={`w-full text-left border rounded-lg p-3 ${selectedEvent.name === event.name ? 'border-blue-400 bg-blue-50' : 'border-slate-200 hover:border-slate-300'}`}>
+            <button key={event.name} onClick={() => setSelectedEvent(event)} className={`w-full text-left border rounded-lg p-3 ${selectedEvent.name === event.name ? 'border-blue-400 bg-brand-50' : 'border-slate-200 hover:border-slate-300'}`}>
                   <div className="flex items-center justify-between">
                     <div className="font-mono text-sm font-semibold text-slate-900">{event.name}</div>
                     <div className="flex items-center space-x-2 text-xs">
@@ -238,7 +238,7 @@ export default function DataCore() {
           </div>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
             <div className="border border-slate-200 rounded p-3 bg-slate-50"><ShieldCheck className="w-4 h-4 mb-1 text-green-600" />SDK 非同步送出，頁面靜默失敗</div>
-            <div className="border border-slate-200 rounded p-3 bg-slate-50"><Clock3 className="w-4 h-4 mb-1 text-blue-600" />事件入庫延遲目標 &lt; 5 秒</div>
+            <div className="border border-slate-200 rounded p-3 bg-slate-50"><Clock3 className="w-4 h-4 mb-1 text-brand-500" />事件入庫延遲目標 &lt; 5 秒</div>
             <div className="border border-slate-200 rounded p-3 bg-slate-50"><Filter className="w-4 h-4 mb-1 text-purple-600" />5 分鐘內以 `event_id` 去重</div>
           </div>
         </div>
@@ -344,7 +344,7 @@ export default function DataCore() {
             <h3 className="font-semibold text-slate-900 mb-4 flex items-center space-x-2"><Layers className="w-4 h-4" /><span>資料保留分層</span></h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
               <div className="border border-green-200 bg-green-50 rounded-lg p-3"><div className="font-semibold text-green-800">熱資料</div><div className="text-green-700 text-xs mt-1">近 90 天 · 秒級查詢</div></div>
-              <div className="border border-blue-200 bg-blue-50 rounded-lg p-3"><div className="font-semibold text-blue-800">溫資料</div><div className="text-blue-700 text-xs mt-1">91 天~1 年 · 數秒級</div></div>
+              <div className="border border-brand-200 bg-brand-50 rounded-lg p-3"><div className="font-semibold text-blue-800">溫資料</div><div className="text-brand-700 text-xs mt-1">91 天~1 年 · 數秒級</div></div>
               <div className="border border-slate-300 bg-slate-50 rounded-lg p-3"><div className="font-semibold text-slate-700">冷資料</div><div className="text-slate-600 text-xs mt-1">1 年以上 · 排程查詢</div></div>
             </div>
             <div className="mt-4 text-xs text-slate-500">預估規模：月 `page_view` 約 1.27 億；尖峰約 500 events/sec（含 scroll）。</div>

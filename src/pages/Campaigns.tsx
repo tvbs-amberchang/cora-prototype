@@ -73,7 +73,7 @@ interface Campaign {
 
 const statusMap: Record<CampaignStatus, {label: string;color: string;}> = {
   draft: { label: '草稿', color: 'bg-slate-100 text-slate-700' },
-  scheduled: { label: '排程中', color: 'bg-blue-100 text-blue-700' },
+  scheduled: { label: '排程中', color: 'bg-brand-100 text-brand-700' },
   active: { label: '進行中', color: 'bg-green-100 text-green-700' },
   ended: { label: '已結束', color: 'bg-slate-200 text-slate-600' }
 };
@@ -209,7 +209,7 @@ type === 'lottery' ? '抽獎' :
 '簽到';
 
 const TypeIcon = ({ type }: {type: CampaignContentType;}) =>
-type === 'card' ? <LayoutTemplate className="w-4 h-4 text-blue-600" /> :
+type === 'card' ? <LayoutTemplate className="w-4 h-4 text-brand-500" /> :
 type === 'survey' ? <MessageSquareText className="w-4 h-4 text-purple-600" /> :
 type === 'lottery' ? <Gift className="w-4 h-4 text-red-600" /> :
 <CalendarCheck className="w-4 h-4 text-orange-600" />;
@@ -522,7 +522,7 @@ export default function Campaigns() {
                 className="w-full px-3 py-2 text-sm border border-slate-300 rounded"
                 placeholder="例如：segment=糖尿病活躍讀者" />
               )}
-              <button onClick={() => setTriggers((prev) => [...prev, ''])} className="text-sm text-blue-600">
+              <button onClick={() => setTriggers((prev) => [...prev, ''])} className="text-sm text-brand-500">
                 + 新增條件（頁面/屬性/行為/分群/時間）
               </button>
             </section>
@@ -606,7 +606,7 @@ export default function Campaigns() {
                   onClick={() =>
                   setPrizes((prev) => [...prev, { id: crypto.randomUUID(), name: '新獎項', stock: 0, remaining: 0, weight: 10 }])
                   }
-                  className="text-sm text-blue-600">
+                  className="text-sm text-brand-500">
                   + 新增獎項
                 </button>
               </section>

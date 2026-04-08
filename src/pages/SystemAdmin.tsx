@@ -179,13 +179,13 @@ export default function SystemAdmin() {
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 p-3 mb-6 flex flex-wrap gap-2">
-        <button onClick={() => setTab('rbac')} className={`px-3 py-2 rounded text-sm ${tab === 'rbac' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>角色與權限</button>
-        <button onClick={() => setTab('channels')} className={`px-3 py-2 rounded text-sm ${tab === 'channels' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>渠道連線</button>
-        <button onClick={() => setTab('budget')} className={`px-3 py-2 rounded text-sm ${tab === 'budget' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>預算管理</button>
-        <button onClick={() => setTab('brands')} className={`px-3 py-2 rounded text-sm ${tab === 'brands' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>品牌設定</button>
-        <button onClick={() => setTab('audit')} className={`px-3 py-2 rounded text-sm ${tab === 'audit' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>操作日誌</button>
-        <button onClick={() => setTab('notify')} className={`px-3 py-2 rounded text-sm ${tab === 'notify' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>系統通知</button>
-        <button onClick={() => setTab('gdpr')} className={`px-3 py-2 rounded text-sm ${tab === 'gdpr' ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50'}`}>GDPR 流程</button>
+        <button onClick={() => setTab('rbac')} className={`px-3 py-2 rounded text-sm ${tab === 'rbac' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>角色與權限</button>
+        <button onClick={() => setTab('channels')} className={`px-3 py-2 rounded text-sm ${tab === 'channels' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>渠道連線</button>
+        <button onClick={() => setTab('budget')} className={`px-3 py-2 rounded text-sm ${tab === 'budget' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>預算管理</button>
+        <button onClick={() => setTab('brands')} className={`px-3 py-2 rounded text-sm ${tab === 'brands' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>品牌設定</button>
+        <button onClick={() => setTab('audit')} className={`px-3 py-2 rounded text-sm ${tab === 'audit' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>操作日誌</button>
+        <button onClick={() => setTab('notify')} className={`px-3 py-2 rounded text-sm ${tab === 'notify' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>系統通知</button>
+        <button onClick={() => setTab('gdpr')} className={`px-3 py-2 rounded text-sm ${tab === 'gdpr' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>GDPR 流程</button>
       </div>
 
       {tab === 'rbac' &&

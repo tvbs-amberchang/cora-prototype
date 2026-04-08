@@ -232,7 +232,7 @@ const BrandBadge = ({ brand }: {brand: string;}) => {
     },
     news: {
       label: 'TVBS 新聞',
-      color: 'bg-blue-100 text-blue-700'
+      color: 'bg-brand-100 text-brand-700'
     }
   };
   const { label, color } = config[brand] || {
@@ -252,7 +252,7 @@ const ChannelIcon = ({
 
 
 }: {channel: string;active?: boolean;}) => {
-  const colorClass = active ? 'text-blue-600' : 'text-slate-300';
+  const colorClass = active ? 'text-brand-500' : 'text-slate-300';
   switch (channel) {
     case 'email':
       return <Mail className={`w-4 h-4 ${colorClass}`} title="Email" />;
@@ -398,7 +398,7 @@ export default function PeopleView() {
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center space-x-4">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                <User className="w-8 h-8 text-blue-600" />
+                <User className="w-8 h-8 text-brand-500" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-slate-900 flex items-center space-x-3">
@@ -438,7 +438,7 @@ export default function PeopleView() {
               onClick={
               showFullPII ? () => setShowFullPII(false) : handleRevealPII
               }
-              className="text-sm text-blue-600 hover:text-blue-700 flex items-center space-x-1 bg-blue-50 px-3 py-1.5 rounded-lg">
+              className="text-sm text-brand-500 hover:text-brand-700 flex items-center space-x-1 bg-brand-50 px-3 py-1.5 rounded-lg">
               
               {showFullPII ?
               <EyeOff className="w-4 h-4" /> :
@@ -539,7 +539,7 @@ export default function PeopleView() {
             {/* 2. 活動摘要 */}
             <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
               <h3 className="text-base font-semibold text-slate-900 mb-4 flex items-center space-x-2">
-                <Activity className="w-5 h-5 text-blue-600" />
+                <Activity className="w-5 h-5 text-brand-500" />
                 <span>最近活動摘要</span>
               </h3>
               <div className="space-y-4">
@@ -724,14 +724,14 @@ export default function PeopleView() {
                   <div className="relative border-l-2 border-slate-100 ml-2 mt-3 space-y-5">
                           {events.map((event) =>
                     <div key={event.id} className="relative pl-5">
-                              <div className="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-white border-2 border-blue-500"></div>
+                              <div className="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-white border-2 border-brand-500"></div>
                               <div className="flex items-center space-x-2 mb-1">
                                 <span className="text-sm font-semibold text-slate-900">
                                   {event.type}
                                 </span>
                                 <BrandBadge brand={event.brand} />
                                 {event.isKeyEvent &&
-                          <span className="text-[10px] px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded">
+                          <span className="text-[10px] px-1.5 py-0.5 bg-brand-100 text-brand-700 rounded">
                                     key
                                   </span>
                           }
@@ -755,7 +755,7 @@ export default function PeopleView() {
               <div className="pt-3">
                   <button
                     onClick={() => setVisibleCount((prev) => prev + 10)}
-                    className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                    className="text-sm text-brand-500 hover:text-brand-700 font-medium">
                     載入更多事件（+10）
                   </button>
                 </div>
@@ -827,7 +827,7 @@ export default function PeopleView() {
           <button
             type="submit"
             disabled={!searchValue.trim() || isSearching}
-            className="bg-blue-600 text-white px-8 py-3 rounded-xl font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2">
+            className="bg-brand-500 text-white px-8 py-3 rounded-xl font-medium hover:bg-brand-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2">
             
             {isSearching ?
             <>
@@ -923,7 +923,7 @@ export default function PeopleView() {
                     <td className="px-6 py-4 text-right">
                       <button
                     onClick={() => setSelectedProfile(result)}
-                    className="text-blue-600 hover:text-blue-800 font-medium flex items-center justify-end space-x-1 w-full">
+                    className="text-brand-500 hover:text-blue-800 font-medium flex items-center justify-end space-x-1 w-full">
                     
                         <span>檢視詳情</span>
                         <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -935,11 +935,11 @@ export default function PeopleView() {
             </table>
           </div>
 
-          <div className="mt-4 bg-blue-50 border border-blue-100 rounded-lg p-4 flex items-start space-x-3">
-            <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+          <div className="mt-4 bg-brand-50 border border-blue-100 rounded-lg p-4 flex items-start space-x-3">
+            <AlertCircle className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-blue-900">
               <p className="font-medium mb-1">找不到你要的人？</p>
-              <p className="text-blue-700">
+              <p className="text-brand-700">
                 請確認輸入的識別符是否正確，或嘗試切換不同的查詢類型（例如改用手機號碼搜尋）。
               </p>
             </div>

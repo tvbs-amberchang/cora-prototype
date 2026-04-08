@@ -228,7 +228,7 @@ const ConditionEditor = ({
       <button
         disabled={!canAddMore}
         onClick={() => onConditionsChange([...conditions, ''])}
-        className="text-sm text-blue-600 disabled:text-slate-400">
+        className="text-sm text-brand-500 disabled:text-slate-400">
         + 新增條件
       </button>
     </div>);
@@ -345,7 +345,7 @@ const SegmentEditorModal = ({
             <button
               key={value}
               onClick={() => setType(value)}
-              className={`p-6 border-2 rounded-xl text-left ${type === value ? 'border-blue-500 bg-blue-50' : 'border-slate-200'}`}>
+              className={`p-6 border-2 rounded-xl text-left ${type === value ? 'border-brand-500 bg-brand-50' : 'border-slate-200'}`}>
                   <p className="font-semibold text-slate-900 mb-2">{value === 'dynamic' ? '動態分群' : '靜態分群'}</p>
                   <p className="text-sm text-slate-600">
                     {value === 'dynamic' ? '系統分鐘級更新，條件不符自動移出。' : '建立時計算一次，名單固定。'}
@@ -429,7 +429,7 @@ const SegmentEditorModal = ({
               <button
               disabled={hasSecondaryGroup}
               onClick={() => setSecondaryConditions([''])}
-              className="text-sm text-blue-600 disabled:text-slate-400">
+              className="text-sm text-brand-500 disabled:text-slate-400">
                 + 新增條件組 B
               </button>
               <div className={`text-sm ${overLimit ? 'text-red-600' : 'text-slate-600'}`}>
@@ -446,7 +446,7 @@ const SegmentEditorModal = ({
           <div className="space-y-4">
               <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center">
                 {!estimatedCount && !isEstimating &&
-              <button onClick={estimate} className="px-6 py-3 bg-blue-600 text-white rounded-lg">
+              <button onClick={estimate} className="px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer">
                     預估人數
                   </button>
               }
@@ -483,7 +483,7 @@ const SegmentEditorModal = ({
           <button
             disabled={step === 2 && !name.trim() || step === 3 && (overLimit || conditions.filter(Boolean).length === 0)}
             onClick={() => step < 4 ? setStep(step + 1) : submit()}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-40">
+            className="px-6 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer disabled:opacity-40">
             {step === 4 ? mode === 'create' ? '建立分群' : '儲存變更' : '下一步'}
           </button>
         </div>
@@ -543,7 +543,7 @@ const ExportModal = ({
           <button
             key={field.key}
             onClick={() => toggle(field.key, field.required, field.pii)}
-            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg border text-sm ${selected.includes(field.key) ? 'bg-blue-50 border-blue-300 text-blue-700' : 'bg-white border-slate-200 text-slate-700'} ${field.pii && role !== 'system_admin' ? 'opacity-50 cursor-not-allowed' : ''}`}>
+            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg border text-sm ${selected.includes(field.key) ? 'bg-brand-50 border-brand-300 text-brand-700' : 'bg-white border-slate-200 text-slate-700'} ${field.pii && role !== 'system_admin' ? 'opacity-50 cursor-not-allowed' : ''}`}>
               <span>
                 {field.label}
                 {field.pii && <span className="ml-2 text-amber-600">⚠ PII</span>}
@@ -566,7 +566,7 @@ const ExportModal = ({
           <span className="text-xs text-slate-500">CSV UTF-8 with BOM，檔案 72 小時後失效。</span>
           <button
             onClick={() => onSubmit(selected)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg">
+            className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer">
             確認匯出
           </button>
         </div>
@@ -629,7 +629,7 @@ const ExploreModal = ({
       <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[92vh] overflow-hidden flex flex-col">
         <div className="p-6 border-b border-slate-200 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Sparkles className="w-5 h-5 text-blue-600" />
+            <Sparkles className="w-5 h-5 text-brand-500" />
             <div>
               <h2 className="text-2xl font-bold text-slate-900">探索受眾</h2>
               <p className="text-sm text-slate-500">離開後條件不保留，除非儲存為分群。</p>
@@ -649,7 +649,7 @@ const ExploreModal = ({
             canAddMore={conditions.length < 20} />
           <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center">
             {!estimatedCount && !isEstimating &&
-            <button onClick={estimate} className="px-6 py-3 bg-blue-600 text-white rounded-lg">
+            <button onClick={estimate} className="px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer">
                 預估
               </button>
             }
@@ -706,7 +706,7 @@ const ExploreModal = ({
                 nestedLevel: 1,
                 estimatedCount: estimatedCount ?? 0
               })}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-40">
+              className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer disabled:opacity-40">
               儲存為分群
             </button>
           </div>
@@ -806,7 +806,7 @@ const SegmentCard = ({
   const [showMenu, setShowMenu] = useState(false);
   const conditionsCount = countConditions(segment);
   return (
-    <div className="bg-white border border-slate-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+    <div className="card-interactive p-5">
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
           <div className="flex items-center space-x-2 mb-2">
@@ -1045,13 +1045,13 @@ export default function Audience() {
                 setEditingSegment(undefined);
                 setShowEditor(true);
               }}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center space-x-2">
+              className="px-4 py-2 btn-primary flex items-center space-x-2">
               <Plus className="w-5 h-5" />
               <span>建立分群</span>
             </button>
             <button
               onClick={() => setShowExploreModal(true)}
-              className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-medium flex items-center space-x-2">
+              className="px-4 py-2 px-4 py-2 border border-brand-500 text-brand-500 rounded-lg hover:bg-brand-50 transition-colors duration-200 cursor-pointer font-medium flex items-center space-x-2">
               <Sparkles className="w-5 h-5" />
               <span>探索受眾</span>
             </button>
