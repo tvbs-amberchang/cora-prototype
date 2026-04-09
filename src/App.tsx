@@ -71,10 +71,8 @@ const SidebarItem = ({
 );
 
 const Topbar = () => {
-  const [isBrandOpen, setIsBrandOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [selectedBrand, setSelectedBrand] = useState('TVBS 全集團');
 
   const currentUser = {
     name: 'Amber Chang',
@@ -89,8 +87,6 @@ const Topbar = () => {
     { id: 'n3', title: 'GDPR 刪除請求 g2 進入執行中', time: '34 分鐘前', severity: 'info' as const },
   ];
 
-  const brands = ['TVBS 全集團', '女人我最大', '健康 2.0', '食尚玩家', 'TVBS 新聞'];
-
   const severityIcon = {
     error: <AlertCircle className="w-4 h-4 text-red-500" />,
     warning: <AlertTriangle className="w-4 h-4 text-amber-500" />,
@@ -99,40 +95,7 @@ const Topbar = () => {
 
   return (
     <header className="h-16 bg-white border-b border-slate-200/80 flex items-center justify-between px-6 sticky top-0 z-10">
-      <div className="flex items-center space-x-4">
-        <div className="relative">
-          <button
-            onClick={() => setIsBrandOpen(!isBrandOpen)}
-            className="flex items-center space-x-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 border border-slate-200 transition-all duration-200 cursor-pointer"
-          >
-            <div className="w-7 h-7 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center text-white text-xs font-bold shadow-sm">
-              {selectedBrand.charAt(0)}
-            </div>
-            <span className="text-sm font-medium text-slate-700">{selectedBrand}</span>
-            <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isBrandOpen ? 'rotate-180' : ''}`} />
-          </button>
-          {isBrandOpen && (
-            <>
-              <div className="fixed inset-0 z-10" onClick={() => setIsBrandOpen(false)} />
-              <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-slate-200 rounded-xl shadow-lg py-1.5 z-20 animate-in fade-in slide-in-from-top-1">
-                {brands.map((brand) => (
-                  <button
-                    key={brand}
-                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors cursor-pointer ${
-                      selectedBrand === brand
-                        ? 'bg-brand-50 text-brand-700 font-medium'
-                        : 'text-slate-700 hover:bg-slate-50'
-                    }`}
-                    onClick={() => { setSelectedBrand(brand); setIsBrandOpen(false); }}
-                  >
-                    {brand}
-                  </button>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+      <div />
 
       <div className="flex items-center space-x-3">
         <div className="relative hidden md:block">
@@ -223,6 +186,8 @@ const Topbar = () => {
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isBrandMenuOpen, setIsBrandMenuOpen] = useState(false);
+  const [selectedBrand, setSelectedBrand] = useState('TVBS 全集團');
 
   const navItems = [
     { icon: LayoutDashboard, label: '總覽儀表板', to: '/' },
@@ -234,6 +199,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { icon: Database, label: '數據追蹤', to: '/data' },
     { icon: Settings, label: '系統管理', to: '/settings' },
   ];
+  const brands = ['TVBS 全集團', '女人我最大', '健康 2.0', '食尚玩家', 'TVBS 新聞'];
 
   return (
     <div className="flex h-screen bg-surface-50 overflow-hidden font-sans">
@@ -281,17 +247,40 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         <div className="p-4">
-          <div className="bg-white/5 backdrop-blur rounded-xl p-3.5 border border-white/5">
+          <div className="relative bg-white/5 backdrop-blur rounded-xl p-3.5 border border-white/5">
             <p className="text-[10px] font-medium text-brand-300/50 uppercase tracking-wider mb-2">
-              系統狀態
+              品牌視角
             </p>
-            <div className="flex items-center space-x-2">
-              <div className="relative">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full" />
-                <div className="w-2 h-2 bg-emerald-400 rounded-full absolute inset-0 animate-ping opacity-30" />
-              </div>
-              <span className="text-sm text-brand-200/70">API 正常運作中</span>
-            </div>
+            <button
+              onClick={() => setIsBrandMenuOpen((prev) => !prev)}
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-white/10 bg-white/5 text-brand-100 hover:bg-white/10 transition-colors cursor-pointer"
+            >
+              <span className="text-sm">{selectedBrand}</span>
+              <ChevronDown className={`w-4 h-4 text-brand-300 transition-transform duration-200 ${isBrandMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isBrandMenuOpen && (
+              <>
+                <div className="fixed inset-0 z-20" onClick={() => setIsBrandMenuOpen(false)} />
+                <div className="absolute bottom-full left-0 mb-2 w-full bg-brand-950 border border-white/10 rounded-xl shadow-lg py-1.5 z-30">
+                  {brands.map((brand) => (
+                    <button
+                      key={brand}
+                      className={`w-full text-left px-3 py-2.5 text-sm transition-colors cursor-pointer ${
+                        selectedBrand === brand
+                          ? 'bg-brand-700/60 text-white font-medium'
+                          : 'text-brand-100/80 hover:bg-white/10 hover:text-white'
+                      }`}
+                      onClick={() => {
+                        setSelectedBrand(brand);
+                        setIsBrandMenuOpen(false);
+                      }}
+                    >
+                      {brand}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </aside>
