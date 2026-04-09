@@ -481,8 +481,10 @@ const Dashboard = () => (
 );
 
 export function App() {
+  const basename = import.meta.env.BASE_URL;
+
   return (
-    <Router>
+    <Router basename={basename}>
       <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
