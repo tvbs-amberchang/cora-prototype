@@ -204,7 +204,7 @@ const ConditionEditor = ({
           <select
             value={logic}
             onChange={(e) => onLogicChange(e.target.value as GroupLogic)}
-            className="px-2 py-1 border border-slate-300 rounded bg-white">
+            className="px-2 py-1 border border-wf-border rounded bg-white">
             <option value="AND">AND</option>
             <option value="OR">OR</option>
           </select>
@@ -215,12 +215,12 @@ const ConditionEditor = ({
           <input
           value={condition}
           onChange={(e) => updateAt(idx, e.target.value)}
-          className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-white"
+          className="w-full px-3 py-2 text-sm border border-wf-border rounded bg-white"
           placeholder="例如：行為｜page_view｜≥ 3 次｜近 7 天" />
         
           <button
           onClick={() => removeAt(idx)}
-          className="px-2 py-2 text-xs text-red-600 border border-red-200 rounded-lg hover:bg-red-50">
+          className="px-2 py-2 text-xs text-red-600 border border-red-200 rounded hover:bg-red-50">
             刪除
           </button>
         </div>
@@ -363,7 +363,7 @@ const SegmentEditorModal = ({
                 <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg"
+                className="w-full px-4 py-2 border border-wf-border rounded"
                 placeholder="例如：糖尿病活躍讀者" />
               
               </div>
@@ -375,7 +375,7 @@ const SegmentEditorModal = ({
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={3}
-                className="w-full px-4 py-2 border border-slate-300 rounded-lg"
+                className="w-full px-4 py-2 border border-wf-border rounded"
                 placeholder="描述這個分群用途" />
               
               </div>
@@ -386,7 +386,7 @@ const SegmentEditorModal = ({
                 <select
                 value={nestedLevel}
                 onChange={(e) => setNestedLevel(Number(e.target.value) as 1 | 2 | 3)}
-                className="px-3 py-2 border border-slate-300 rounded-lg">
+                className="px-3 py-2 border border-wf-border rounded">
                   <option value={1}>1 層</option>
                   <option value={2}>2 層</option>
                   <option value={3}>3 層</option>
@@ -444,9 +444,9 @@ const SegmentEditorModal = ({
           }
           {step === 4 &&
           <div className="space-y-4">
-              <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center">
+              <div className="bg-slate-50 border border-wf-border rounded p-6 text-center">
                 {!estimatedCount && !isEstimating &&
-              <button onClick={estimate} className="px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer">
+              <button onClick={estimate} className="px-6 py-3 bg-brand-500 text-white rounded hover:bg-brand-600 hover:translate-x-1.5 transition-all cursor-pointer">
                     預估人數
                   </button>
               }
@@ -466,7 +466,7 @@ const SegmentEditorModal = ({
               }
               </div>
               {cooldownError &&
-            <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3">
+            <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded p-3">
                   {cooldownError}
                 </div>
             }
@@ -483,7 +483,7 @@ const SegmentEditorModal = ({
           <button
             disabled={step === 2 && !name.trim() || step === 3 && (overLimit || conditions.filter(Boolean).length === 0)}
             onClick={() => step < 4 ? setStep(step + 1) : submit()}
-            className="px-6 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer disabled:opacity-40">
+            className="px-6 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 hover:translate-x-1.5 transition-all cursor-pointer disabled:opacity-40">
             {step === 4 ? mode === 'create' ? '建立分群' : '儲存變更' : '下一步'}
           </button>
         </div>
@@ -543,7 +543,7 @@ const ExportModal = ({
           <button
             key={field.key}
             onClick={() => toggle(field.key, field.required, field.pii)}
-            className={`w-full flex items-center justify-between px-3 py-2 rounded-lg border text-sm ${selected.includes(field.key) ? 'bg-brand-50 border-brand-300 text-brand-700' : 'bg-white border-slate-200 text-slate-700'} ${field.pii && role !== 'system_admin' ? 'opacity-50 cursor-not-allowed' : ''}`}>
+            className={`w-full flex items-center justify-between px-3 py-2 rounded border text-sm ${selected.includes(field.key) ? 'bg-brand-50 border-brand-300 text-brand-700' : 'bg-white border-wf-border text-slate-700'} ${field.pii && role !== 'system_admin' ? 'opacity-50 cursor-not-allowed' : ''}`}>
               <span>
                 {field.label}
                 {field.pii && <span className="ml-2 text-amber-600">⚠ PII</span>}
@@ -566,7 +566,7 @@ const ExportModal = ({
           <span className="text-xs text-slate-500">CSV UTF-8 with BOM，檔案 72 小時後失效。</span>
           <button
             onClick={() => onSubmit(selected)}
-            className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer">
+            className="px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 hover:translate-x-1.5 transition-all cursor-pointer">
             確認匯出
           </button>
         </div>
@@ -647,9 +647,9 @@ const ExploreModal = ({
             onLogicChange={setGroupLogic}
             onConditionsChange={setConditions}
             canAddMore={conditions.length < 20} />
-          <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center">
+          <div className="bg-slate-50 border border-wf-border rounded p-6 text-center">
             {!estimatedCount && !isEstimating &&
-            <button onClick={estimate} className="px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer">
+            <button onClick={estimate} className="px-6 py-3 bg-brand-500 text-white rounded hover:bg-brand-600 hover:translate-x-1.5 transition-all cursor-pointer">
                 預估
               </button>
             }
@@ -672,12 +672,12 @@ const ExploreModal = ({
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg"
+              className="px-3 py-2 border border-wf-border rounded"
               placeholder="儲存為分群名稱" />
             <select
               value={segmentType}
               onChange={(e) => setSegmentType(e.target.value as SegmentType)}
-              className="px-3 py-2 border border-slate-300 rounded-lg">
+              className="px-3 py-2 border border-wf-border rounded">
               <option value="dynamic">動態分群</option>
               <option value="static">靜態分群</option>
             </select>
@@ -691,7 +691,7 @@ const ExploreModal = ({
             <button
               disabled={!estimatedCount}
               onClick={() => estimatedCount && onExport('探索結果', estimatedCount)}
-              className="px-4 py-2 border border-slate-300 rounded-lg disabled:opacity-40 flex items-center space-x-2">
+              className="px-4 py-2 border border-wf-border rounded disabled:opacity-40 flex items-center space-x-2">
               <Download className="w-4 h-4" />
               <span>匯出名單</span>
             </button>
@@ -706,7 +706,7 @@ const ExploreModal = ({
                 nestedLevel: 1,
                 estimatedCount: estimatedCount ?? 0
               })}
-              className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors cursor-pointer disabled:opacity-40">
+              className="px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 hover:translate-x-1.5 transition-all cursor-pointer disabled:opacity-40">
               儲存為分群
             </button>
           </div>
@@ -1036,7 +1036,7 @@ export default function Audience() {
         <p className="text-slate-500">符合 PRD-004 的前端流程驗證版本</p>
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-200 p-6 mb-6">
+      <div className="bg-white rounded-xl border border-wf-border p-6 mb-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between space-y-4 md:space-y-0 mb-6">
           <div className="flex items-center space-x-3">
             <button
@@ -1051,7 +1051,7 @@ export default function Audience() {
             </button>
             <button
               onClick={() => setShowExploreModal(true)}
-              className="px-4 py-2 px-4 py-2 border border-brand-500 text-brand-500 rounded-lg hover:bg-brand-50 transition-colors duration-200 cursor-pointer font-medium flex items-center space-x-2">
+              className="px-4 py-2 border border-brand-500 text-brand-500 rounded hover:bg-brand-50 hover:translate-x-1.5 transition-all duration-200 cursor-pointer font-medium flex items-center space-x-2">
               <Sparkles className="w-5 h-5" />
               <span>探索受眾</span>
             </button>
@@ -1060,7 +1060,7 @@ export default function Audience() {
             <select
               value={role}
               onChange={(e) => setRole(e.target.value as UserRole)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+              className="px-3 py-2 border border-wf-border rounded text-sm">
               <option value="marketer">角色：Marketer</option>
               <option value="system_admin">角色：System Admin</option>
             </select>
@@ -1071,12 +1071,12 @@ export default function Audience() {
                 placeholder="搜尋分群名稱..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm w-64" />
+                className="pl-9 pr-4 py-2 border border-wf-border rounded text-sm w-64" />
             </div>
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value as SegmentStatus | 'all')}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+              className="px-3 py-2 border border-wf-border rounded text-sm">
               <option value="all">全部狀態</option>
               <option value="active">啟用中</option>
               <option value="draft">草稿</option>

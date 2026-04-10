@@ -51,14 +51,14 @@ const SidebarItem = ({
     className={`group flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 cursor-pointer ${
       isActive
         ? 'bg-white/10 text-white font-medium'
-        : 'text-brand-200/70 hover:bg-white/5 hover:text-white'
+        : 'text-white/70 hover:bg-white/5 hover:text-white'
     }`}
   >
     <div
       className={`flex items-center justify-center w-8 h-8 rounded-lg transition-colors duration-200 ${
         isActive
           ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/30'
-          : 'text-brand-300/60 group-hover:text-white'
+          : 'text-white/55 group-hover:text-white'
       }`}
     >
       <Icon className="w-[18px] h-[18px]" />
@@ -212,7 +212,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <aside
         className={`
-          fixed md:static inset-y-0 left-0 z-30 w-[260px] bg-brand-900 flex flex-col transition-transform duration-300 ease-in-out shadow-sidebar
+          fixed md:static inset-y-0 left-0 z-30 w-[260px] bg-gradient-to-b from-[#0f1a33] via-[#0b1428] to-[#080e1c] border-r border-white/10 flex flex-col transition-transform duration-300 ease-in-out shadow-sidebar
           ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
         `}
       >
@@ -223,16 +223,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             </div>
             <div>
               <span className="text-lg font-bold text-white tracking-tight">CORA</span>
-              <div className="text-[10px] text-brand-300/50 tracking-wider uppercase">Platform</div>
+              <div className="text-[10px] text-white/50 tracking-wider uppercase">Platform</div>
             </div>
           </div>
-          <button className="md:hidden text-brand-300" onClick={() => setIsMobileMenuOpen(false)}>
+          <button className="md:hidden text-white/70" onClick={() => setIsMobileMenuOpen(false)}>
             <X className="w-5 h-5" />
           </button>
         </div>
 
         <div className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-          <div className="px-3 mb-3 text-[10px] font-semibold text-brand-400/40 uppercase tracking-[0.15em]">
+          <div className="px-3 mb-3 text-[10px] font-semibold text-white/35 uppercase tracking-[0.15em]">
             核心模組
           </div>
           {navItems.map((item) => (
@@ -248,27 +248,27 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
         <div className="p-4">
           <div className="relative bg-white/5 backdrop-blur rounded-xl p-3.5 border border-white/5">
-            <p className="text-[10px] font-medium text-brand-300/50 uppercase tracking-wider mb-2">
+            <p className="text-[10px] font-medium text-white/50 uppercase tracking-wider mb-2">
               品牌視角
             </p>
             <button
               onClick={() => setIsBrandMenuOpen((prev) => !prev)}
-              className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-white/10 bg-white/5 text-brand-100 hover:bg-white/10 transition-colors cursor-pointer"
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-white/10 bg-white/5 text-white/90 hover:bg-white/10 transition-colors cursor-pointer"
             >
               <span className="text-sm">{selectedBrand}</span>
-              <ChevronDown className={`w-4 h-4 text-brand-300 transition-transform duration-200 ${isBrandMenuOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-white/60 transition-transform duration-200 ${isBrandMenuOpen ? 'rotate-180' : ''}`} />
             </button>
             {isBrandMenuOpen && (
               <>
                 <div className="fixed inset-0 z-20" onClick={() => setIsBrandMenuOpen(false)} />
-                <div className="absolute bottom-full left-0 mb-2 w-full bg-brand-950 border border-white/10 rounded-xl shadow-lg py-1.5 z-30">
+                <div className="absolute bottom-full left-0 mb-2 w-full bg-[#0b1428] border border-white/10 rounded-xl shadow-lg py-1.5 z-30">
                   {brands.map((brand) => (
                     <button
                       key={brand}
                       className={`w-full text-left px-3 py-2.5 text-sm transition-colors cursor-pointer ${
                         selectedBrand === brand
-                          ? 'bg-brand-700/60 text-white font-medium'
-                          : 'text-brand-100/80 hover:bg-white/10 hover:text-white'
+                          ? 'bg-brand-500/25 text-white font-medium'
+                          : 'text-white/80 hover:bg-white/10 hover:text-white'
                       }`}
                       onClick={() => {
                         setSelectedBrand(brand);

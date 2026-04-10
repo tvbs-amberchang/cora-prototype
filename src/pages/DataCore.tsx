@@ -138,7 +138,7 @@ export default function DataCore() {
         <p className="text-slate-500">統一事件模型、SDK 追蹤、內容屬性擷取與下游即時查詢</p>
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-200 p-3 mb-6 flex flex-wrap gap-2">
+      <div className="bg-white rounded-xl border border-wf-border p-3 mb-6 flex flex-wrap gap-2">
         <button onClick={() => setTab('events')} className={`px-3 py-2 rounded text-sm ${tab === 'events' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>事件目錄</button>
         <button onClick={() => setTab('sdk')} className={`px-3 py-2 rounded text-sm ${tab === 'sdk' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>SDK 追蹤能力</button>
         <button onClick={() => setTab('content')} className={`px-3 py-2 rounded text-sm ${tab === 'content' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>內容屬性擷取</button>
@@ -149,7 +149,7 @@ export default function DataCore() {
 
       {tab === 'events' &&
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6">
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-slate-900 flex items-center space-x-2"><Activity className="w-4 h-4" /><span>標準事件目錄（16）</span></h3>
               <div className="text-xs text-slate-500">含 `event_id` 去重 + 非同步送出</div>
@@ -157,14 +157,14 @@ export default function DataCore() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4">
               <div className="relative md:col-span-2">
                 <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                <input value={eventQuery} onChange={(e) => setEventQuery(e.target.value)} placeholder="搜尋事件名稱..." className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded text-sm" />
+                <input value={eventQuery} onChange={(e) => setEventQuery(e.target.value)} placeholder="搜尋事件名稱..." className="w-full pl-9 pr-3 py-2 border border-wf-border rounded text-sm" />
               </div>
               <div className="flex items-center space-x-2">
-                <select value={eventCategory} onChange={(e) => setEventCategory(e.target.value as EventCategory | 'all')} className="w-full px-3 py-2 border border-slate-300 rounded text-sm bg-white">
+                <select value={eventCategory} onChange={(e) => setEventCategory(e.target.value as EventCategory | 'all')} className="w-full px-3 py-2 border border-wf-border rounded text-sm bg-white">
                   <option value="all">全部分類</option>
                   {Object.entries(categoryLabel).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
                 </select>
-                <select value={eventMode} onChange={(e) => setEventMode(e.target.value as EventMode | 'all')} className="w-full px-3 py-2 border border-slate-300 rounded text-sm bg-white">
+                <select value={eventMode} onChange={(e) => setEventMode(e.target.value as EventMode | 'all')} className="w-full px-3 py-2 border border-wf-border rounded text-sm bg-white">
                   <option value="all">全部模式</option>
                   <option value="auto">自動</option>
                   <option value="manual">手動</option>
@@ -174,7 +174,7 @@ export default function DataCore() {
             </div>
             <div className="space-y-2 max-h-[520px] overflow-y-auto pr-1">
               {filteredEvents.map((event) =>
-            <button key={event.name} onClick={() => setSelectedEvent(event)} className={`w-full text-left border rounded-lg p-3 ${selectedEvent.name === event.name ? 'border-blue-400 bg-brand-50' : 'border-slate-200 hover:border-slate-300'}`}>
+            <button key={event.name} onClick={() => setSelectedEvent(event)} className={`w-full text-left border rounded p-3 ${selectedEvent.name === event.name ? 'border-blue-400 bg-brand-50' : 'border-wf-border hover:border-slate-400'}`}>
                   <div className="flex items-center justify-between">
                     <div className="font-mono text-sm font-semibold text-slate-900">{event.name}</div>
                     <div className="flex items-center space-x-2 text-xs">
@@ -188,9 +188,9 @@ export default function DataCore() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><FileSearch className="w-4 h-4" /><span>事件定義詳情</span></h3>
-            <div className="border border-slate-200 rounded-lg p-4 bg-slate-50 space-y-3">
+            <div className="border border-wf-border rounded p-4 bg-slate-50 space-y-3">
               <div>
                 <div className="text-xs text-slate-500">事件名稱</div>
                 <div className="font-mono text-sm font-semibold text-slate-900">{selectedEvent.name}</div>
@@ -202,7 +202,7 @@ export default function DataCore() {
               <div>
                 <div className="text-xs text-slate-500 mb-1">必填欄位</div>
                 <div className="flex flex-wrap gap-2">
-                  {selectedEvent.required.map((field) => <span key={field} className="px-2 py-1 text-xs bg-white border border-slate-200 rounded font-mono">{field}</span>)}
+                  {selectedEvent.required.map((field) => <span key={field} className="px-2 py-1 text-xs bg-white border border-wf-border rounded font-mono">{field}</span>)}
                 </div>
               </div>
             </div>
@@ -215,11 +215,11 @@ export default function DataCore() {
       }
 
       {tab === 'sdk' &&
-      <div className="bg-white rounded-xl border border-slate-200 p-5">
+      <div className="bg-white rounded-xl border border-wf-border p-5">
           <h3 className="font-semibold text-slate-900 mb-4 flex items-center space-x-2"><Database className="w-4 h-4" /><span>Web/App SDK 追蹤矩陣</span></h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="text-left text-slate-500 border-b border-slate-200">
+              <thead className="text-left text-slate-500 border-b border-wf-border">
                 <tr>
                   <th className="py-2">事件</th><th className="py-2">Web</th><th className="py-2">App</th><th className="py-2">備註</th>
                 </tr>
@@ -237,20 +237,20 @@ export default function DataCore() {
             </table>
           </div>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-            <div className="border border-slate-200 rounded p-3 bg-slate-50"><ShieldCheck className="w-4 h-4 mb-1 text-green-600" />SDK 非同步送出，頁面靜默失敗</div>
-            <div className="border border-slate-200 rounded p-3 bg-slate-50"><Clock3 className="w-4 h-4 mb-1 text-brand-500" />事件入庫延遲目標 &lt; 5 秒</div>
-            <div className="border border-slate-200 rounded p-3 bg-slate-50"><Filter className="w-4 h-4 mb-1 text-purple-600" />5 分鐘內以 `event_id` 去重</div>
+            <div className="border border-wf-border rounded p-3 bg-slate-50"><ShieldCheck className="w-4 h-4 mb-1 text-green-600" />SDK 非同步送出，頁面靜默失敗</div>
+            <div className="border border-wf-border rounded p-3 bg-slate-50"><Clock3 className="w-4 h-4 mb-1 text-brand-500" />事件入庫延遲目標 &lt; 5 秒</div>
+            <div className="border border-wf-border rounded p-3 bg-slate-50"><Filter className="w-4 h-4 mb-1 text-purple-600" />5 分鐘內以 `event_id` 去重</div>
           </div>
         </div>
       }
 
       {tab === 'content' &&
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-3">Meta Tag 擷取映射</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="text-left text-slate-500 border-b border-slate-200">
+                <thead className="text-left text-slate-500 border-b border-wf-border">
                   <tr><th className="py-2">CORA 欄位</th><th className="py-2">Meta Tag</th><th className="py-2">用途</th></tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -263,12 +263,12 @@ export default function DataCore() {
               </table>
             </div>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-3">各站盤點狀態（NEED-REVIEW）</h3>
             <div className="space-y-3 text-sm">
-              <label className="flex items-center justify-between border border-slate-200 rounded p-3"><span>健康 2.0 `article:tag` 輸出一致</span><input type="checkbox" defaultChecked /></label>
-              <label className="flex items-center justify-between border border-slate-200 rounded p-3"><span>食尚玩家 `article:tag` 格式為陣列</span><input type="checkbox" /></label>
-              <label className="flex items-center justify-between border border-slate-200 rounded p-3"><span>女人我最大 `article:tag` 可用</span><input type="checkbox" defaultChecked /></label>
+              <label className="flex items-center justify-between border border-wf-border rounded p-3"><span>健康 2.0 `article:tag` 輸出一致</span><input type="checkbox" defaultChecked /></label>
+              <label className="flex items-center justify-between border border-wf-border rounded p-3"><span>食尚玩家 `article:tag` 格式為陣列</span><input type="checkbox" /></label>
+              <label className="flex items-center justify-between border border-wf-border rounded p-3"><span>女人我最大 `article:tag` 可用</span><input type="checkbox" defaultChecked /></label>
             </div>
             <p className="mt-3 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-3">若某站缺少 `article:tag`，仍可先用 `content_category` 做分群，標籤層級分群將降級。</p>
           </div>
@@ -277,23 +277,23 @@ export default function DataCore() {
 
       {tab === 'custom' &&
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><Tags className="w-4 h-4" /><span>申請自訂事件</span></h3>
             <div className="space-y-3">
-              <input value={newCustomName} onChange={(e) => setNewCustomName(e.target.value)} placeholder="事件名稱（snake_case）" className="w-full px-3 py-2 border border-slate-300 rounded text-sm font-mono" />
-              <select value={newCustomOwner} onChange={(e) => setNewCustomOwner(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded text-sm bg-white">
+              <input value={newCustomName} onChange={(e) => setNewCustomName(e.target.value)} placeholder="事件名稱（snake_case）" className="w-full px-3 py-2 border border-wf-border rounded text-sm font-mono" />
+              <select value={newCustomOwner} onChange={(e) => setNewCustomOwner(e.target.value)} className="w-full px-3 py-2 border border-wf-border rounded text-sm bg-white">
                 <option>健康 2.0</option><option>食尚玩家</option><option>女人我最大</option>
               </select>
-              <textarea value={newCustomPurpose} onChange={(e) => setNewCustomPurpose(e.target.value)} rows={3} placeholder="用途（要用在哪個分群/報表）" className="w-full px-3 py-2 border border-slate-300 rounded text-sm" />
-              <button onClick={addCustomEventRequest} className="px-3 py-2 bg-slate-900 text-white rounded text-sm">送出審核</button>
+              <textarea value={newCustomPurpose} onChange={(e) => setNewCustomPurpose(e.target.value)} rows={3} placeholder="用途（要用在哪個分群/報表）" className="w-full px-3 py-2 border border-wf-border rounded text-sm" />
+              <button onClick={addCustomEventRequest} className="px-3 py-2 bg-wf-black text-white rounded text-sm hover:translate-x-1.5 transition-all">送出審核</button>
             </div>
             <div className="mt-3 text-xs text-slate-500">規則：不可 `system_` / `_` 前綴、不可與標準事件同義重複、每事件參數上限 20。</div>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-3">審核佇列</h3>
             <div className="space-y-2">
               {customRequests.map((request) =>
-            <div key={request.id} className="border border-slate-200 rounded-lg p-3">
+            <div key={request.id} className="border border-wf-border rounded p-3">
                   <div className="flex items-center justify-between">
                     <div className="font-mono text-sm font-semibold text-slate-900">{request.name}</div>
                     <span className={`px-2 py-0.5 text-xs rounded ${request.status === 'approved' ? 'bg-green-100 text-green-700' : request.status === 'review' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-700'}`}>
@@ -310,11 +310,11 @@ export default function DataCore() {
 
       {tab === 'attributes' &&
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-3">屬性字典</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="text-left text-slate-500 border-b border-slate-200">
+                <thead className="text-left text-slate-500 border-b border-wf-border">
                   <tr><th className="py-2">顯示名稱</th><th className="py-2">代碼</th><th className="py-2">型態</th><th className="py-2">來源</th></tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -326,7 +326,7 @@ export default function DataCore() {
               </table>
             </div>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-3">更新規則</h3>
             <ul className="text-sm text-slate-700 space-y-2">
               <li>同一屬性採 Last Write Wins</li>
@@ -340,20 +340,20 @@ export default function DataCore() {
 
       {tab === 'retention' &&
       <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6">
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-4 flex items-center space-x-2"><Layers className="w-4 h-4" /><span>資料保留分層</span></h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
-              <div className="border border-green-200 bg-green-50 rounded-lg p-3"><div className="font-semibold text-green-800">熱資料</div><div className="text-green-700 text-xs mt-1">近 90 天 · 秒級查詢</div></div>
-              <div className="border border-brand-200 bg-brand-50 rounded-lg p-3"><div className="font-semibold text-blue-800">溫資料</div><div className="text-brand-700 text-xs mt-1">91 天~1 年 · 數秒級</div></div>
-              <div className="border border-slate-300 bg-slate-50 rounded-lg p-3"><div className="font-semibold text-slate-700">冷資料</div><div className="text-slate-600 text-xs mt-1">1 年以上 · 排程查詢</div></div>
+              <div className="border border-green-200 bg-green-50 rounded p-3"><div className="font-semibold text-green-800">熱資料</div><div className="text-green-700 text-xs mt-1">近 90 天 · 秒級查詢</div></div>
+              <div className="border border-brand-200 bg-brand-50 rounded p-3"><div className="font-semibold text-blue-800">溫資料</div><div className="text-brand-700 text-xs mt-1">91 天~1 年 · 數秒級</div></div>
+              <div className="border border-wf-border bg-slate-50 rounded p-3"><div className="font-semibold text-slate-700">冷資料</div><div className="text-slate-600 text-xs mt-1">1 年以上 · 排程查詢</div></div>
             </div>
             <div className="mt-4 text-xs text-slate-500">預估規模：月 `page_view` 約 1.27 億；尖峰約 500 events/sec（含 scroll）。</div>
           </div>
 
-          <div className="bg-white rounded-xl border border-slate-200 p-5">
+          <div className="bg-white rounded-xl border border-wf-border p-5">
             <h3 className="font-semibold text-slate-900 mb-3">分群查詢模擬器</h3>
             <div className="space-y-3">
-              <select value={queryEvent} onChange={(e) => setQueryEvent(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded text-sm bg-white">
+              <select value={queryEvent} onChange={(e) => setQueryEvent(e.target.value)} className="w-full px-3 py-2 border border-wf-border rounded text-sm bg-white">
                 <option value="page_view">page_view</option>
                 <option value="video_complete">video_complete</option>
                 <option value="notification_click">notification_click</option>
@@ -362,8 +362,8 @@ export default function DataCore() {
               <input type="range" min={1} max={90} value={queryDays} onChange={(e) => setQueryDays(Number(e.target.value))} className="w-full" />
               <div className="text-xs text-slate-500">近 {queryDays} 天</div>
               <label className="text-xs text-slate-600 block">事件次數門檻（&gt;=）</label>
-              <input type="number" min={1} value={queryThreshold} onChange={(e) => setQueryThreshold(Number(e.target.value) || 1)} className="w-full px-3 py-2 border border-slate-300 rounded text-sm" />
-              <div className="border border-slate-200 rounded p-3 bg-slate-50">
+              <input type="number" min={1} value={queryThreshold} onChange={(e) => setQueryThreshold(Number(e.target.value) || 1)} className="w-full px-3 py-2 border border-wf-border rounded text-sm" />
+              <div className="border border-wf-border rounded p-3 bg-slate-50">
                 <div className="text-xs text-slate-500">預估符合人數</div>
                 <div className="text-2xl font-mono font-bold text-slate-900">{queryResult.toLocaleString()}</div>
               </div>
@@ -372,7 +372,7 @@ export default function DataCore() {
         </div>
       }
 
-      <div className="mt-6 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg p-4">
+      <div className="mt-6 text-xs text-slate-500 bg-slate-50 border border-wf-border rounded p-4">
         Data Core 與下游對接：Segmentation（PRD-004）讀事件條件、Delivery（PRD-005）寫入 `message_*`、People View（PRD-006）顯示個體事件時間線。
       </div>
     </div>);

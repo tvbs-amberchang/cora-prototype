@@ -394,7 +394,7 @@ export default function PeopleView() {
         </div>
 
         {/* 1. 首屏：身分與聯絡方式 */}
-        <div className="bg-white rounded-xl border border-slate-200 p-6 mb-6 shadow-sm">
+        <div className="bg-white rounded-xl border border-wf-border p-6 mb-6 shadow-sm">
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center space-x-4">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
@@ -655,7 +655,7 @@ export default function PeopleView() {
                 <select
                   value={timeRange}
                   onChange={(e) => setTimeRange(e.target.value as TimeRange)}
-                  className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+                  className="px-3 py-2 border border-wf-border rounded text-sm">
                   <option value="24h">近 24 小時</option>
                   <option value="7d">近 7 天</option>
                   <option value="30d">近 30 天</option>
@@ -663,7 +663,7 @@ export default function PeopleView() {
                 <select
                   value={eventTypeFilter}
                   onChange={(e) => setEventTypeFilter(e.target.value)}
-                  className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+                  className="px-3 py-2 border border-wf-border rounded text-sm">
                   <option value="all">全部事件類型</option>
                   {eventTypeOptions.map((type) =>
                   <option key={type} value={type}>
@@ -674,7 +674,7 @@ export default function PeopleView() {
                 <select
                   value={brandFilter}
                   onChange={(e) => setBrandFilter(e.target.value)}
-                  className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+                  className="px-3 py-2 border border-wf-border rounded text-sm">
                   <option value="all">全部 Brand</option>
                   {brandOptions.map((brand) =>
                   <option key={brand} value={brand}>
@@ -682,7 +682,7 @@ export default function PeopleView() {
                     </option>
                   )}
                 </select>
-                <label className="md:col-span-2 flex items-center justify-between border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-700">
+                <label className="md:col-span-2 flex items-center justify-between border border-wf-border rounded px-3 py-2 text-sm text-slate-700">
                   <span className="flex items-center space-x-2">
                     <Filter className="w-4 h-4 text-slate-400" />
                     <span>僅看關鍵事件</span>

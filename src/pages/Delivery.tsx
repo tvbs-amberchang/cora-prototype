@@ -775,25 +775,25 @@ export default function Delivery() {
         <p className="text-slate-500">統一管理 Push / LINE / SMS / Email 的發送任務、規則攔截與成效追蹤</p>
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-200 p-6 mb-6">
+      <div className="bg-white rounded-xl border border-wf-border p-6 mb-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between space-y-4 md:space-y-0 mb-6">
-          <button onClick={openCreate} className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors font-medium flex items-center space-x-2">
+          <button onClick={openCreate} className="px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 hover:translate-x-1.5 transition-all font-medium flex items-center space-x-2">
             <Send className="w-4 h-4" />
             <span>建立發送任務</span>
           </button>
           <div className="flex items-center space-x-2">
             <div className="relative">
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
-              <input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="搜尋任務名稱..." className="pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm w-56" />
+              <input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="搜尋任務名稱..." className="pl-9 pr-4 py-2 border border-wf-border rounded text-sm w-56" />
             </div>
-            <select value={channelFilter} onChange={(e) => setChannelFilter(e.target.value as ChannelType | 'all')} className="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white">
+            <select value={channelFilter} onChange={(e) => setChannelFilter(e.target.value as ChannelType | 'all')} className="px-3 py-2 border border-wf-border rounded text-sm bg-white">
               <option value="all">全部渠道</option>
               <option value="push">App Push</option>
               <option value="line">LINE OA</option>
               <option value="sms">SMS</option>
               <option value="email">Email</option>
             </select>
-            <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as TaskStatus | 'all')} className="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white">
+            <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as TaskStatus | 'all')} className="px-3 py-2 border border-wf-border rounded text-sm bg-white">
               <option value="all">全部狀態</option>
               <option value="draft">草稿</option>
               <option value="scheduled">已排程</option>

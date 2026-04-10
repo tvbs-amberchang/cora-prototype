@@ -699,11 +699,11 @@ export default function Campaigns() {
         <p className="text-slate-500">Engagement Core：Inline / Popup / 問卷 / 抽獎 / 簽到</p>
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-200 p-6 mb-6">
+      <div className="bg-white rounded-xl border border-wf-border p-6 mb-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between space-y-4 md:space-y-0 mb-6">
           <button
             onClick={() => startEdit(null)}
-            className="px-4 py-2 bg-slate-900 text-white rounded-lg font-medium flex items-center space-x-2">
+            className="px-4 py-2 bg-wf-black text-white rounded font-medium flex items-center space-x-2 hover:translate-x-1.5 transition-all">
             <Plus className="w-4 h-4" />
             <span>建立行銷活動</span>
           </button>
@@ -715,22 +715,22 @@ export default function Campaigns() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="搜尋活動名稱..."
-                className="pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm w-56" />
+                className="pl-9 pr-4 py-2 border border-wf-border rounded text-sm w-56" />
             </div>
-            <select value={brandFilter} onChange={(e) => setBrandFilter(e.target.value as Brand | 'all')} className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+            <select value={brandFilter} onChange={(e) => setBrandFilter(e.target.value as Brand | 'all')} className="px-3 py-2 border border-wf-border rounded text-sm">
               <option value="all">全部 Brand</option>
               <option value="health">健康 2.0</option>
               <option value="supertaste">食尚玩家</option>
               <option value="woman">女人我最大</option>
             </select>
-            <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as CampaignContentType | 'all')} className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+            <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as CampaignContentType | 'all')} className="px-3 py-2 border border-wf-border rounded text-sm">
               <option value="all">全部類型</option>
               <option value="card">卡片</option>
               <option value="survey">問卷</option>
               <option value="lottery">抽獎</option>
               <option value="checkin">簽到</option>
             </select>
-            <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as CampaignStatus | 'all')} className="px-3 py-2 border border-slate-300 rounded-lg text-sm">
+            <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as CampaignStatus | 'all')} className="px-3 py-2 border border-wf-border rounded text-sm">
               <option value="all">全部狀態</option>
               <option value="draft">草稿</option>
               <option value="scheduled">排程中</option>
