@@ -4,7 +4,6 @@ import {
   BarChart3,
   CheckCircle2,
   ChevronLeft,
-  ChevronRight,
   Copy,
   Mail,
   MessageCircle,
@@ -12,7 +11,7 @@ import {
   Search,
   Send,
   Smartphone,
-  Users } from
+} from
 'lucide-react';
 
 type ChannelType = 'push' | 'line' | 'sms' | 'email';
@@ -380,14 +379,17 @@ export default function Delivery() {
     () => audienceOptions.find((a) => a.id === selectedAudienceId) ?? audienceOptions[0],
     [selectedAudienceId]
   );
-  const activeRules = ruleMode === 'none' ? {
-    ...rules,
-    dailyCapEnabled: false,
-    perUserCapEnabled: false,
-    budgetGuardEnabled: false,
-    allowedStartHour: 0,
-    allowedEndHour: 24
-  } : rules;
+  const activeRules = useMemo(
+    () => (ruleMode === 'none' ? {
+      ...rules,
+      dailyCapEnabled: false,
+      perUserCapEnabled: false,
+      budgetGuardEnabled: false,
+      allowedStartHour: 0,
+      allowedEndHour: 24
+    } : rules),
+    [ruleMode, rules]
+  );
 
   const smsPerUser = smsBody.length <= 70 ? 1 : Math.ceil(smsBody.length / 67);
   const simulatedMetrics = useMemo(

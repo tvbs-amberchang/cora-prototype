@@ -132,10 +132,10 @@ const initialGdpr: GdprRequest[] = [
 export default function SystemAdmin() {
   const [tab, setTab] = useState<'rbac' | 'channels' | 'budget' | 'brands' | 'audit' | 'notify' | 'gdpr'>('rbac');
   const [users, setUsers] = useState(initialUsers);
-  const [credentials, setCredentials] = useState(initialCredentials);
+  const [credentials] = useState(initialCredentials);
   const [budgets, setBudgets] = useState(initialBudgets);
   const [logs] = useState(initialLogs);
-  const [gdprRequests, setGdprRequests] = useState(initialGdpr);
+  const [gdprRequests] = useState(initialGdpr);
   const [logQuery, setLogQuery] = useState('');
   const [newUserName, setNewUserName] = useState('');
   const [newUserRole, setNewUserRole] = useState<Role>('marketer');

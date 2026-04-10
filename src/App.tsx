@@ -307,17 +307,6 @@ const PageHeader = ({ title, description }: { title: string; description: string
   </div>
 );
 
-const PlaceholderCard = ({ title, children }: { title: string; children?: React.ReactNode }) => (
-  <div className="card p-6">
-    <h3 className="text-lg font-semibold text-slate-800 mb-4">{title}</h3>
-    {children || (
-      <div className="h-48 border-2 border-dashed border-slate-200 rounded-xl flex items-center justify-center bg-slate-50/50">
-        <p className="text-slate-400 text-sm">此頁面功能建置中... (等待詳細 PRD)</p>
-      </div>
-    )}
-  </div>
-);
-
 const KpiCard = ({
   label,
   value,

@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import {
   Activity,
-  CheckCircle2,
   Clock3,
   Database,
   FileSearch,
