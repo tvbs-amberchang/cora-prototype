@@ -154,6 +154,8 @@ export default function SystemAdmin() {
     ),
     [logQuery, logs]
   );
+  const panelClass = 'w-full bg-white rounded-xl border border-wf-border p-5 min-h-[560px]';
+  const sectionClass = 'w-full rounded-xl border border-wf-border p-5';
 
   const addUser = () => {
     const name = newUserName.trim();
@@ -178,19 +180,25 @@ export default function SystemAdmin() {
         <p className="text-slate-500">RBAC、渠道憑證、預算管理、品牌設定、稽核日誌與系統通知</p>
       </div>
 
-      <div className="bg-white rounded-xl border border-wf-border p-3 mb-6 flex flex-wrap gap-2">
-        <button onClick={() => setTab('rbac')} className={`px-3 py-2 rounded text-sm ${tab === 'rbac' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>角色與權限</button>
-        <button onClick={() => setTab('channels')} className={`px-3 py-2 rounded text-sm ${tab === 'channels' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>渠道連線</button>
-        <button onClick={() => setTab('budget')} className={`px-3 py-2 rounded text-sm ${tab === 'budget' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>預算管理</button>
-        <button onClick={() => setTab('brands')} className={`px-3 py-2 rounded text-sm ${tab === 'brands' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>品牌設定</button>
-        <button onClick={() => setTab('audit')} className={`px-3 py-2 rounded text-sm ${tab === 'audit' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>操作日誌</button>
-        <button onClick={() => setTab('notify')} className={`px-3 py-2 rounded text-sm ${tab === 'notify' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>系統通知</button>
-        <button onClick={() => setTab('gdpr')} className={`px-3 py-2 rounded text-sm ${tab === 'gdpr' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>GDPR 流程</button>
+      <div className="w-full max-w-[1024px] mx-auto">
+      <div className="bg-white rounded-xl border border-wf-border p-3 mb-6">
+        <div className="grid grid-cols-7 gap-2">
+          <button onClick={() => setTab('rbac')} className={`w-full px-3 py-2 rounded text-sm text-center ${tab === 'rbac' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>角色與權限</button>
+          <button onClick={() => setTab('channels')} className={`w-full px-3 py-2 rounded text-sm text-center ${tab === 'channels' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>渠道連線</button>
+          <button onClick={() => setTab('budget')} className={`w-full px-3 py-2 rounded text-sm text-center ${tab === 'budget' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>預算管理</button>
+          <button onClick={() => setTab('brands')} className={`w-full px-3 py-2 rounded text-sm text-center ${tab === 'brands' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>品牌設定</button>
+          <button onClick={() => setTab('audit')} className={`w-full px-3 py-2 rounded text-sm text-center ${tab === 'audit' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>操作日誌</button>
+          <button onClick={() => setTab('notify')} className={`w-full px-3 py-2 rounded text-sm text-center ${tab === 'notify' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>系統通知</button>
+          <button onClick={() => setTab('gdpr')} className={`w-full px-3 py-2 rounded text-sm text-center ${tab === 'gdpr' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}>GDPR 流程</button>
+        </div>
       </div>
 
+      <div className="min-h-[560px]">
+
       {tab === 'rbac' &&
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl border border-wf-border p-5">
+      <div className={panelClass}>
+          <div className="grid grid-cols-1 gap-6">
+          <div className={sectionClass}>
             <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><Users className="w-4 h-4" /><span>帳號與角色指派</span></h3>
             <div className="space-y-3 mb-4">
               <input value={newUserName} onChange={(e) => setNewUserName(e.target.value)} placeholder="新帳號名稱" className="w-full px-3 py-2 border border-wf-border rounded text-sm" />
@@ -218,7 +226,7 @@ export default function SystemAdmin() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-wf-border p-5">
+          <div className={sectionClass}>
             <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><Shield className="w-4 h-4" /><span>權限矩陣摘要</span></h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
@@ -236,38 +244,42 @@ export default function SystemAdmin() {
             </div>
             <div className="mt-3 text-xs text-slate-500">認證由 Azure AD SSO 提供；本頁只管理角色與 brand 指派。</div>
           </div>
+          </div>
         </div>
       }
 
       {tab === 'channels' &&
-      <div className="bg-white rounded-xl border border-wf-border p-5">
-          <h3 className="font-semibold text-slate-900 mb-4 flex items-center space-x-2"><KeyRound className="w-4 h-4" /><span>渠道憑證與健康狀態</span></h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="text-left text-slate-500 border-b border-wf-border">
-                <tr><th className="py-2">渠道</th><th className="py-2">Provider</th><th className="py-2">憑證</th><th className="py-2">狀態</th><th className="py-2">最後檢查</th><th className="py-2">備註</th></tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {credentials.map((item) =>
-              <tr key={item.id}>
-                    <td className="py-2">{channelLabel[item.channel]}</td>
-                    <td className="py-2">{item.provider}</td>
-                    <td className="py-2 font-mono text-xs">{item.maskedKey}</td>
-                    <td className="py-2">{healthLabel[item.status]}</td>
-                    <td className="py-2 text-slate-500">{item.lastCheck}</td>
-                    <td className="py-2 text-xs text-slate-500">{item.channel === 'sms' && item.isPrimary ? '主要供應商' : '-'}</td>
-                  </tr>
-              )}
-              </tbody>
-            </table>
+      <div className={panelClass}>
+          <div className={sectionClass}>
+            <h3 className="font-semibold text-slate-900 mb-4 flex items-center space-x-2"><KeyRound className="w-4 h-4" /><span>渠道憑證與健康狀態</span></h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="text-left text-slate-500 border-b border-wf-border">
+                  <tr><th className="py-2">渠道</th><th className="py-2">Provider</th><th className="py-2">憑證</th><th className="py-2">狀態</th><th className="py-2">最後檢查</th><th className="py-2">備註</th></tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {credentials.map((item) =>
+                <tr key={item.id}>
+                      <td className="py-2">{channelLabel[item.channel]}</td>
+                      <td className="py-2">{item.provider}</td>
+                      <td className="py-2 font-mono text-xs">{item.maskedKey}</td>
+                      <td className="py-2">{healthLabel[item.status]}</td>
+                      <td className="py-2 text-slate-500">{item.lastCheck}</td>
+                      <td className="py-2 text-xs text-slate-500">{item.channel === 'sms' && item.isPrimary ? '主要供應商' : '-'}</td>
+                    </tr>
+                )}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-4 text-xs text-slate-500 bg-slate-50 border border-wf-border rounded p-3">憑證寫入後僅顯示遮罩；SMS 供應商失敗時可切到備援，恢復後自動切回主要。</div>
           </div>
-          <div className="mt-4 text-xs text-slate-500 bg-slate-50 border border-wf-border rounded p-3">憑證寫入後僅顯示遮罩；SMS 供應商失敗時可切到備援，恢復後自動切回主要。</div>
         </div>
       }
 
       {tab === 'budget' &&
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl border border-wf-border p-5">
+      <div className={panelClass}>
+          <div className="grid grid-cols-1 gap-6">
+          <div className={sectionClass}>
             <h3 className="font-semibold text-slate-900 mb-3">渠道預算與 brand 分配</h3>
             <div className="space-y-3">
               {budgets.map((row, idx) =>
@@ -288,7 +300,7 @@ export default function SystemAdmin() {
             )}
             </div>
           </div>
-          <div className="bg-white rounded-xl border border-wf-border p-5">
+          <div className={sectionClass}>
             <h3 className="font-semibold text-slate-900 mb-3">告警門檻</h3>
             <div className="space-y-3 text-sm">
               <label className="block">提醒門檻（%）<input type="number" value={budgetWarn} onChange={(e) => setBudgetWarn(Number(e.target.value) || 0)} className="mt-1 w-full px-3 py-2 border border-wf-border rounded" /></label>
@@ -296,68 +308,74 @@ export default function SystemAdmin() {
               <div className="text-xs text-slate-500 bg-slate-50 border border-wf-border rounded p-3">預算設定/分配由 System Admin 管；發送時攔截邏輯由 Delivery Core 執行。</div>
             </div>
           </div>
+          </div>
         </div>
       }
 
       {tab === 'brands' &&
-      <div className="bg-white rounded-xl border border-wf-border p-5">
-          <h3 className="font-semibold text-slate-900 mb-4">Brand 設定與發送身份</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
-            <div className="border border-wf-border rounded p-3">
-              <div className="font-semibold text-slate-900 mb-2">health（健康 2.0）</div>
-              <div className="text-xs text-slate-600">Email：健康 2.0 &lt;health@tvbs.com.tw&gt;</div>
-              <div className="text-xs text-slate-600">SMS：`【健康2.0】`</div>
-              <div className="text-xs text-slate-600">LINE：健康 2.0 官方帳號</div>
+      <div className={panelClass}>
+          <div className={sectionClass}>
+            <h3 className="font-semibold text-slate-900 mb-4">Brand 設定與發送身份</h3>
+            <div className="grid grid-cols-1 gap-3 text-sm">
+              <div className="border border-wf-border rounded p-3">
+                <div className="font-semibold text-slate-900 mb-2">health（健康 2.0）</div>
+                <div className="text-xs text-slate-600">Email：健康 2.0 &lt;health@tvbs.com.tw&gt;</div>
+                <div className="text-xs text-slate-600">SMS：`【健康2.0】`</div>
+                <div className="text-xs text-slate-600">LINE：健康 2.0 官方帳號</div>
+              </div>
+              <div className="border border-wf-border rounded p-3">
+                <div className="font-semibold text-slate-900 mb-2">supertaste（食尚玩家）</div>
+                <div className="text-xs text-slate-600">Email：食尚玩家 &lt;supertaste@tvbs.com.tw&gt;</div>
+                <div className="text-xs text-slate-600">SMS：`【食尚玩家】`</div>
+                <div className="text-xs text-slate-600">LINE：食尚玩家官方帳號</div>
+              </div>
+              <div className="border border-wf-border rounded p-3">
+                <div className="font-semibold text-slate-900 mb-2">woman（女人我最大）</div>
+                <div className="text-xs text-slate-600">Email：女人我最大 &lt;woman@tvbs.com.tw&gt;</div>
+                <div className="text-xs text-slate-600">SMS：`【女人我最大】`</div>
+                <div className="text-xs text-slate-600">LINE：女人我最大官方帳號</div>
+              </div>
             </div>
-            <div className="border border-wf-border rounded p-3">
-              <div className="font-semibold text-slate-900 mb-2">supertaste（食尚玩家）</div>
-              <div className="text-xs text-slate-600">Email：食尚玩家 &lt;supertaste@tvbs.com.tw&gt;</div>
-              <div className="text-xs text-slate-600">SMS：`【食尚玩家】`</div>
-              <div className="text-xs text-slate-600">LINE：食尚玩家官方帳號</div>
-            </div>
-            <div className="border border-wf-border rounded p-3">
-              <div className="font-semibold text-slate-900 mb-2">woman（女人我最大）</div>
-              <div className="text-xs text-slate-600">Email：女人我最大 &lt;woman@tvbs.com.tw&gt;</div>
-              <div className="text-xs text-slate-600">SMS：`【女人我最大】`</div>
-              <div className="text-xs text-slate-600">LINE：女人我最大官方帳號</div>
-            </div>
+            <div className="mt-3 text-xs text-slate-500">brand code 停用不刪資料；新增/停用需 PM 審核流程。</div>
           </div>
-          <div className="mt-3 text-xs text-slate-500">brand code 停用不刪資料；新增/停用需 PM 審核流程。</div>
         </div>
       }
 
       {tab === 'audit' &&
-      <div className="bg-white rounded-xl border border-wf-border p-5">
-          <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><FileText className="w-4 h-4" /><span>全域稽核日誌（append-only）</span></h3>
-          <div className="relative mb-3">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input value={logQuery} onChange={(e) => setLogQuery(e.target.value)} placeholder="搜尋操作者 / 動作 / 目標..." className="w-full pl-9 pr-3 py-2 border border-wf-border rounded text-sm" />
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="text-left text-slate-500 border-b border-wf-border">
-                <tr><th className="py-2">時間</th><th className="py-2">操作者</th><th className="py-2">動作</th><th className="py-2">目標</th><th className="py-2">模組</th><th className="py-2">IP</th></tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {filteredLogs.map((log) =>
-              <tr key={log.id}>
-                    <td className="py-2 text-xs">{log.at}</td>
-                    <td className="py-2">{log.actor}</td>
-                    <td className="py-2 font-mono text-xs">{log.action}</td>
-                    <td className="py-2">{log.target}</td>
-                    <td className="py-2 text-xs">{log.module}</td>
-                    <td className="py-2 text-xs font-mono">{log.ip}</td>
-                  </tr>
-              )}
-              </tbody>
-            </table>
+      <div className={panelClass}>
+          <div className={sectionClass}>
+            <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><FileText className="w-4 h-4" /><span>全域稽核日誌（append-only）</span></h3>
+            <div className="relative mb-3">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input value={logQuery} onChange={(e) => setLogQuery(e.target.value)} placeholder="搜尋操作者 / 動作 / 目標..." className="w-full pl-9 pr-3 py-2 border border-wf-border rounded text-sm" />
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="text-left text-slate-500 border-b border-wf-border">
+                  <tr><th className="py-2">時間</th><th className="py-2">操作者</th><th className="py-2">動作</th><th className="py-2">目標</th><th className="py-2">模組</th><th className="py-2">IP</th></tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {filteredLogs.map((log) =>
+                <tr key={log.id}>
+                      <td className="py-2 text-xs">{log.at}</td>
+                      <td className="py-2">{log.actor}</td>
+                      <td className="py-2 font-mono text-xs">{log.action}</td>
+                      <td className="py-2">{log.target}</td>
+                      <td className="py-2 text-xs">{log.module}</td>
+                      <td className="py-2 text-xs font-mono">{log.ip}</td>
+                    </tr>
+                )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       }
 
       {tab === 'notify' &&
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-xl border border-wf-border p-5">
+      <div className={panelClass}>
+          <div className="grid grid-cols-1 gap-6 h-full">
+          <div className={`${sectionClass} h-full`}>
             <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><Bell className="w-4 h-4" /><span>通知規則</span></h3>
             <div className="space-y-2 text-sm">
               <label className="flex items-center justify-between border border-wf-border rounded p-3"><span>渠道健康檢查失敗（緊急）</span><input type="checkbox" checked={notifyChannelError} onChange={(e) => setNotifyChannelError(e.target.checked)} /></label>
@@ -365,7 +383,7 @@ export default function SystemAdmin() {
               <label className="flex items-center justify-between border border-wf-border rounded p-3"><span>大量名單匯出（&gt;10,000）</span><input type="checkbox" checked={notifyExport} onChange={(e) => setNotifyExport(e.target.checked)} /></label>
             </div>
           </div>
-          <div className="bg-white rounded-xl border border-wf-border p-5">
+          <div className={`${sectionClass} h-full`}>
             <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><Slack className="w-4 h-4" /><span>Slack / Email 通知設定</span></h3>
             <div className="space-y-3">
               <label className="block text-sm">Slack Webhook（遮罩顯示）
@@ -377,33 +395,38 @@ export default function SystemAdmin() {
               <div className="text-xs text-slate-500 bg-slate-50 border border-wf-border rounded p-3">通知歷史保留至少 6 個月；緊急事件預設後台+Email+Slack。</div>
             </div>
           </div>
+          </div>
         </div>
       }
 
       {tab === 'gdpr' &&
-      <div className="bg-white rounded-xl border border-wf-border p-5">
-          <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><Lock className="w-4 h-4" /><span>GDPR Request Orchestrator</span></h3>
-          <div className="space-y-3 mb-4">
-            {gdprRequests.map((req) =>
-          <div key={req.id} className="border border-wf-border rounded p-3">
-                <div className="flex items-center justify-between">
-                  <div className="font-mono text-sm text-slate-900">{req.id}</div>
-                  <span className={`px-2 py-0.5 rounded text-xs ${req.status === 'completed' ? 'bg-green-100 text-green-700' : req.status === 'failed' ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-700'}`}>
-                    {req.status}
-                  </span>
+      <div className={panelClass}>
+          <div className={`${sectionClass} max-w-full overflow-hidden`}>
+            <h3 className="font-semibold text-slate-900 mb-3 flex items-center space-x-2"><Lock className="w-4 h-4" /><span>GDPR Request Orchestrator</span></h3>
+            <div className="space-y-3 mb-4">
+              {gdprRequests.map((req) =>
+            <div key={req.id} className="border border-wf-border rounded p-3 min-w-0">
+                  <div className="flex items-center justify-between">
+                    <div className="font-mono text-sm text-slate-900 break-all">{req.id}</div>
+                    <span className={`px-2 py-0.5 rounded text-xs ${req.status === 'completed' ? 'bg-green-100 text-green-700' : req.status === 'failed' ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-700'}`}>
+                      {req.status}
+                    </span>
+                  </div>
+                  <div className="text-xs text-slate-600 mt-1 break-words">{req.type} · cora_id: {req.coraId}</div>
+                  <div className="text-xs text-slate-600 break-words">requester: {req.requester}{req.approver ? ` · approver: ${req.approver}` : ''}</div>
+                  <div className="text-xs text-slate-500 break-words">reason: {req.reason}</div>
                 </div>
-                <div className="text-xs text-slate-600 mt-1">{req.type} · cora_id: {req.coraId}</div>
-                <div className="text-xs text-slate-600">requester: {req.requester}{req.approver ? ` · approver: ${req.approver}` : ''}</div>
-                <div className="text-xs text-slate-500">reason: {req.reason}</div>
-              </div>
-          )}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-            <div className="border border-wf-border rounded p-3 bg-slate-50"><Database className="w-4 h-4 mb-1 text-slate-700" />module_tasks：Identity / Data / Audience / Delivery / Engagement</div>
-            <div className="border border-wf-border rounded p-3 bg-slate-50"><CheckCircle2 className="w-4 h-4 mb-1 text-slate-700" />刪除需第二位 System Admin 覆核後才可入列</div>
-            <div className="border border-wf-border rounded p-3 bg-slate-50"><FileText className="w-4 h-4 mb-1 text-slate-700" />audit log 不可寫入明文 PII（僅遮罩或摘要）</div>
+            )}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+              <div className="border border-wf-border rounded p-3 bg-slate-50 break-words"><Database className="w-4 h-4 mb-1 text-slate-700" />module_tasks：Identity / Data / Audience / Delivery / Engagement</div>
+              <div className="border border-wf-border rounded p-3 bg-slate-50 break-words"><CheckCircle2 className="w-4 h-4 mb-1 text-slate-700" />刪除需第二位 System Admin 覆核後才可入列</div>
+              <div className="border border-wf-border rounded p-3 bg-slate-50 break-words"><FileText className="w-4 h-4 mb-1 text-slate-700" />audit log 不可寫入明文 PII（僅遮罩或摘要）</div>
+            </div>
           </div>
         </div>
       }
+      </div>
+      </div>
     </div>);
 }
