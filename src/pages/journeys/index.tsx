@@ -165,7 +165,7 @@ const NodeIcon = ({ type }: {type: string;}) => {
 const getNodeColor = (type: string) => {
   switch (type) {
     case 'trigger':
-      return 'bg-brand-500';
+      return 'bg-primary';
     case 'action_message':
       return 'bg-green-500';
     case 'action_tag':
@@ -200,7 +200,7 @@ const CanvasNode = ({
   const accentColor = getNodeColor(type);
   return (
     <div
-      className={`relative w-[280px] bg-white rounded-md transition-all cursor-pointer group flex flex-col ${isActive ? 'ring-2 ring-brand-300 border-transparent shadow-md' : 'border border-slate-300 shadow-sm hover:border-slate-400'} ${!isConfigured ? 'border-dashed border-red-400' : ''}`}>
+      className={`relative w-[280px] bg-white rounded-md transition-all cursor-pointer group flex flex-col ${isActive ? 'ring-2 ring-ring border-transparent shadow-md' : 'border border-slate-300 shadow-sm hover:border-slate-400'} ${!isConfigured ? 'border-dashed border-red-400' : ''}`}>
       
       {/* Left Accent Line */}
       <div
@@ -886,7 +886,7 @@ export default function Journeys() {
           <h1 className="text-2xl font-bold text-slate-900 mb-2">建立旅程 - 基本設定</h1>
           <p className="text-slate-500">先完成觸發與基本資訊，再進入畫布編排節點。</p>
         </div>
-        <div className="bg-white border border-wf-border rounded-xl p-6 space-y-5">
+        <div className="bg-white border border-border rounded-xl p-6 space-y-5">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">旅程名稱</label>
             <input
@@ -894,14 +894,14 @@ export default function Journeys() {
               value={setupName}
               onChange={(e) => setSetupName(e.target.value)}
               placeholder="例如：新註冊 7 日培養旅程"
-              className="w-full px-3 py-2 border border-wf-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-brand-300" />
+              className="w-full px-3 py-2 border border-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">觸發類型</label>
             <select
               value={setupTriggerType}
               onChange={(e) => setSetupTriggerType(e.target.value as TriggerType)}
-              className="w-full px-3 py-2 border border-wf-border rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-brand-300">
+              className="w-full px-3 py-2 border border-border rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ring">
               <option value="event">行為觸發</option>
               <option value="attribute">屬性觸發</option>
               <option value="schedule">排程觸發</option>
@@ -915,7 +915,7 @@ export default function Journeys() {
               type="text"
               value={setupEntrySegment}
               onChange={(e) => setSetupEntrySegment(e.target.value)}
-              className="w-full px-3 py-2 border border-wf-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-brand-300" />
+              className="w-full px-3 py-2 border border-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
               <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
                 啟用時會建立此分群的基線快照，後續以「進入後變化」計算進件，避免回溯舊成員。
               </p>
@@ -928,17 +928,17 @@ export default function Journeys() {
               value={setupDescription}
               onChange={(e) => setSetupDescription(e.target.value)}
               placeholder="描述這條旅程的目的與成功指標"
-              className="w-full px-3 py-2 border border-wf-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-brand-300" />
+              className="w-full px-3 py-2 border border-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
           </div>
           <div className="pt-2 flex items-center justify-end space-x-3">
             <button
               onClick={() => setView('list')}
-              className="px-4 py-2 border border-wf-border text-wf-gray rounded hover:bg-slate-50 hover:translate-x-1.5 transition-all text-sm">
+              className="px-4 py-2 border border-border text-ph-secondary rounded hover:bg-slate-50 hover:translate-x-1.5 transition-all text-sm">
               取消
             </button>
             <button
               onClick={saveSetupAndOpenCanvas}
-              className="px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 hover:translate-x-1.5 transition-all text-sm font-medium">
+              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 hover:translate-x-1.5 transition-all text-sm font-medium">
               儲存並進入畫布
             </button>
           </div>
@@ -1152,7 +1152,7 @@ export default function Journeys() {
                     )
                   )
                   }
-                  className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-brand-300 focus:border-brand-500" />
+                  className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-ring focus:border-primary" />
                 
                 </div>
 
@@ -1160,7 +1160,7 @@ export default function Journeys() {
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">
                     選擇發送渠道
                   </label>
-                  <select className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-brand-300 focus:border-brand-500 bg-white">
+                  <select className="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-ring focus:border-primary bg-white">
                     <option>App Push</option>
                     <option>LINE</option>
                     <option>SMS</option>
@@ -1197,7 +1197,7 @@ export default function Journeys() {
                     <span className="text-sm text-slate-700 font-medium">
                       [喚醒] 專屬健康報告已生成
                     </span>
-                    <span className="text-xs text-slate-400 group-hover:text-brand-500 font-medium">
+                    <span className="text-xs text-slate-400 group-hover:text-primary font-medium">
                       更換
                     </span>
                   </div>
@@ -1299,11 +1299,11 @@ export default function Journeys() {
         </p>
       </div>
 
-      <div className="bg-white rounded-xl border border-wf-border p-6 mb-6">
+      <div className="bg-white rounded-xl border border-border p-6 mb-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between space-y-4 md:space-y-0 mb-6">
           <button
             onClick={() => openSetup()}
-            className="px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 hover:translate-x-1.5 transition-all font-medium flex items-center space-x-2">
+            className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 hover:translate-x-1.5 transition-all font-medium flex items-center space-x-2">
             <Plus className="w-5 h-5" />
             <span>建立旅程</span>
           </button>
@@ -1316,7 +1316,7 @@ export default function Journeys() {
                 placeholder="搜尋旅程名稱..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-4 py-2 border border-wf-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-brand-300 w-64" />
+                className="pl-9 pr-4 py-2 border border-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-ring w-64" />
               
             </div>
 
@@ -1325,7 +1325,7 @@ export default function Journeys() {
               onChange={(e) =>
               setStatusFilter(e.target.value as JourneyStatus | 'all')
               }
-              className="px-3 py-2 border border-wf-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-brand-300">
+              className="px-3 py-2 border border-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-ring">
               
               <option value="all">全部狀態</option>
               <option value="active">啟用中</option>
@@ -1372,7 +1372,7 @@ export default function Journeys() {
                   <td className="px-4 py-4 text-right font-medium text-slate-900">
                     {journey.enteredCount.toLocaleString()}
                   </td>
-                  <td className="px-4 py-4 text-right text-brand-500 font-medium">
+                  <td className="px-4 py-4 text-right text-primary font-medium">
                     {journey.inProgressCount.toLocaleString()}
                   </td>
                   <td className="px-4 py-4 text-right text-green-600 font-medium">
@@ -1392,7 +1392,7 @@ export default function Journeys() {
                       }
                       <button
                         onClick={() => openCanvas(journey)}
-                        className="text-brand-500 hover:text-blue-800 font-medium px-3 py-1.5 rounded hover:bg-brand-50 transition-colors">
+                        className="text-primary hover:text-blue-800 font-medium px-3 py-1.5 rounded hover:bg-primary/10 transition-colors">
                         開啟畫布
                       </button>
                     </div>
