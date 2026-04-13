@@ -38,7 +38,7 @@ export const Layout = ({ children }: LayoutProps) => {
           title={title}
           onMobileMenuOpen={() => setMobileMenuOpen(true)}
         />
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto flex flex-col">
           {children}
         </main>
       </div>
