@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ["class"],
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}'
@@ -14,58 +15,70 @@ export default {
     },
     extend: {
       colors: {
-        brand: {
-          50: '#eaf2ff',
-          100: '#d6e6ff',
-          200: '#b7d3ff',
-          300: '#8bb9ff',
-          400: '#3b89ff',
-          500: '#146ef5',
-          600: '#0055d4',
-          700: '#006acc',
-          800: '#004fa3',
-          900: '#08357a',
-          950: '#061f44',
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          50: '#f5f2ff',
-          100: '#ece3ff',
-          200: '#dac9ff',
-          300: '#b794ff',
-          400: '#7a3dff',
-          500: '#ed52cb',
-          600: '#ff6b00',
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
-        surface: {
-          0: '#ffffff',
-          50: '#ffffff',
-          100: '#f7f7f7',
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
-        wf: {
-          black: '#080808',
-          gray: '#5a5a5a',
-          border: '#d8d8d8',
-          green: '#00d722',
-          yellow: '#ffae13',
-          red: '#ee1d36',
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        sidebar: {
+          bg: '#fafaf9',
+          border: '#e5e5e5',
+          hover: '#e8e8e6',
+          active: '#e8e8e6',
+          muted: '#999999',
+        },
+        ph: {
+          blue: '#1d4aff',
+          text: '#1d1f27',
+          secondary: '#5e5e5e',
+          muted: '#999999',
+          surface: '#f3f4f6',
+          success: '#36b37e',
+          warning: '#f5a623',
+          danger: '#ef4444',
         },
       },
       fontFamily: {
-        sans: ['"WF Visual Sans Variable"', 'Inter', 'Noto Sans TC', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Inter', '"Noto Sans TC"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'card': '0 84px 24px rgba(0, 0, 0, 0), 0 54px 22px rgba(0, 0, 0, 0.01), 0 30px 18px rgba(0, 0, 0, 0.04), 0 13px 13px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.09)',
-        'card-hover': '0 84px 24px rgba(0, 0, 0, 0), 0 54px 22px rgba(0, 0, 0, 0.015), 0 30px 18px rgba(0, 0, 0, 0.05), 0 13px 13px rgba(0, 0, 0, 0.1), 0 3px 7px rgba(0, 0, 0, 0.12)',
-        'sidebar': '0 84px 24px rgba(0, 0, 0, 0), 0 54px 22px rgba(0, 0, 0, 0.01), 0 30px 18px rgba(0, 0, 0, 0.04), 0 13px 13px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.09)',
+        'card': '0 1px 3px rgba(0, 0, 0, 0.08)',
+        'card-hover': '0 2px 8px rgba(0, 0, 0, 0.12)',
       },
       borderRadius: {
-        'xl': '8px',
-        '2xl': '8px',
-      },
-      transitionDuration: {
-        '250': '250ms',
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
