@@ -34,16 +34,16 @@ interface NavItem {
 }
 
 const insightsItems: NavItem[] = [
-  { icon: LayoutDashboard, label: 'Dashboard', to: '/' },
-  { icon: User, label: 'People', to: '/people' },
-  { icon: Database, label: 'Events', to: '/data' },
+  { icon: LayoutDashboard, label: '總覽儀表板', to: '/' },
+  { icon: User, label: '用戶檔案', to: '/people' },
+  { icon: Database, label: '數據追蹤', to: '/data' },
 ];
 
 const actionItems: NavItem[] = [
-  { icon: Users, label: 'Cohorts', to: '/audience' },
-  { icon: Send, label: 'Delivery', to: '/delivery' },
-  { icon: Workflow, label: 'Journeys', to: '/journeys' },
-  { icon: Megaphone, label: 'Campaigns', to: '/campaigns' },
+  { icon: Users, label: '受眾區隔', to: '/audience' },
+  { icon: Send, label: '訊息遞送', to: '/delivery' },
+  { icon: Workflow, label: '自動化旅程', to: '/journeys' },
+  { icon: Megaphone, label: '行銷活動', to: '/campaigns' },
 ];
 
 interface SidebarNavItemProps {
@@ -139,7 +139,7 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
           <div className="px-3 pb-2">
             <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-md border border-sidebar-border bg-white text-ph-muted text-sm cursor-default">
               <Search className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>Search...</span>
+              <span>搜尋...</span>
               <span className="ml-auto text-xs bg-sidebar-hover px-1 rounded">⌘K</span>
             </div>
           </div>
@@ -153,7 +153,7 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContent side="right">Search (⌘K)</TooltipContent>
+            <TooltipContent side="right">搜尋 (⌘K)</TooltipContent>
           </Tooltip>
         )}
 
@@ -165,7 +165,7 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
           <div>
             {!collapsed && (
               <div className="px-2 mb-1 text-[10px] font-semibold text-ph-muted uppercase tracking-wider">
-                Insights
+                洞察
               </div>
             )}
             <div className="space-y-0.5">
@@ -184,7 +184,7 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
           <div>
             {!collapsed && (
               <div className="px-2 mb-1 text-[10px] font-semibold text-ph-muted uppercase tracking-wider">
-                Action
+                行動
               </div>
             )}
             <div className="space-y-0.5">
@@ -204,7 +204,7 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
         <div className="px-2 pb-2 space-y-1">
           {/* Settings */}
           <SidebarNavItem
-            item={{ icon: Settings, label: 'Settings', to: '/settings' }}
+            item={{ icon: Settings, label: '系統管理', to: '/settings' }}
             isActive={isActive('/settings')}
             collapsed={collapsed}
           />
@@ -273,7 +273,7 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
             ) : (
               <>
                 <ChevronsLeft className="w-4 h-4" />
-                <span>Collapse</span>
+                <span>收合</span>
               </>
             )}
           </button>

@@ -7,14 +7,14 @@ import { Sidebar } from './Sidebar';
 import { Header } from './Header';
 
 const routeTitles: Record<string, string> = {
-  '/': 'Dashboard',
-  '/people': 'People',
-  '/data': 'Events',
-  '/audience': 'Cohorts',
-  '/delivery': 'Delivery',
-  '/journeys': 'Journeys',
-  '/campaigns': 'Campaigns',
-  '/settings': 'Settings',
+  '/': '總覽儀表板',
+  '/people': '用戶檔案',
+  '/data': '數據追蹤',
+  '/audience': '受眾區隔',
+  '/delivery': '訊息遞送',
+  '/journeys': '自動化旅程',
+  '/campaigns': '行銷活動',
+  '/settings': '系統管理',
 };
 
 interface LayoutProps {
