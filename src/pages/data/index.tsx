@@ -9,7 +9,7 @@ import { QueryBuilder } from './QueryBuilder';
 
 export default function DataCore() {
   return (
-    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
+    <div className="p-6 md:p-8 ">
       <PageHeader
         title="數據追蹤"
         description="統一事件模型、SDK 追蹤、內容屬性擷取與下游即時查詢"

@@ -151,7 +151,7 @@ export default function Audience() {
   };
 
   return (
-    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
+    <div className="p-6 md:p-8 ">
       <PageHeader title="受眾區隔" description="符合 PRD-004 的前端流程驗證版本" />
 
       <div className="bg-white rounded-xl border border-border p-6 mb-6">

@@ -218,10 +218,7 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
                 onClick={() => setBrandMenuOpen((prev) => !prev)}
                 className="w-full flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-sidebar-hover text-sm transition-colors"
               >
-                <div className="w-6 h-6 rounded-full bg-ph-blue flex items-center justify-center text-white text-xs font-semibold flex-shrink-0">
-                  AC
-                </div>
-                <span className="flex-1 text-left text-ph-text truncate">Amber Chang</span>
+                <span className="flex-1 text-left text-ph-text truncate">{selectedBrand}</span>
                 <ChevronDown className={cn('w-3.5 h-3.5 text-ph-muted transition-transform', brandMenuOpen && 'rotate-180')} />
               </button>
               {brandMenuOpen && (

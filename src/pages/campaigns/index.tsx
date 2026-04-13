@@ -280,7 +280,7 @@ export default function Campaigns() {
   }
 
   return (
-    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
+    <div className="p-6 md:p-8 ">
       <PageHeader title="行銷活動" description="Engagement Core：Inline / Popup / 問卷 / 抽獎 / 簽到" />
 
       <CampaignList

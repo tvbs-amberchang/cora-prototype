@@ -46,7 +46,7 @@ const alerts = [
 ];
 
 const DashboardPage = () => (
-  <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
+  <div className="p-6 md:p-8 ">
     <PageHeader title="總覽儀表板" description="全站數據與行銷活動概況" />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">

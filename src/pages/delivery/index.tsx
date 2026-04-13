@@ -44,7 +44,7 @@ export default function Delivery() {
   }
 
   return (
-    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
+    <div className="p-6 md:p-8 ">
       <PageHeader
         title="訊息遞送"
         description="統一管理 Push / LINE / SMS / Email 的發送任務、規則攔截與成效追蹤"

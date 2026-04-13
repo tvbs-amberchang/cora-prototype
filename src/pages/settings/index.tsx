@@ -18,7 +18,7 @@ import GdprTab from './GdprTab';
 
 export default function SettingsPage() {
   return (
-    <div className="p-6 md:p-8 max-w-[1200px] mx-auto">
+    <div className="p-6 md:p-8 ">
       <PageHeader
         title="系統管理與設定"
         description="RBAC、渠道憑證、預算管理、稽核日誌與系統通知"
