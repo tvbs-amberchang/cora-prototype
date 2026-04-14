@@ -14,7 +14,7 @@ const routeTitles: Record<string, string> = {
   '/delivery': '訊息遞送',
   '/journeys': '自動化旅程',
   '/campaigns': '行銷活動',
-  '/settings': '系統管理',
+  '/settings': '設定',
 };
 
 interface LayoutProps {

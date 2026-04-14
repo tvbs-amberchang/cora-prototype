@@ -94,9 +94,9 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
   const [brandMenuOpen, setBrandMenuOpen] = useState(false);
-  const [selectedBrand, setSelectedBrand] = useState('TVBS 全集團');
+  const [selectedBrand, setSelectedBrand] = useState('全集團');
 
-  const brands = ['TVBS 全集團', '女人我最大', '健康 2.0', '食尚玩家', 'TVBS 新聞'];
+  const brands = ['全集團', '女人我最大', '健康 2.0', '食尚玩家', 'TVBS 新聞'];
 
   const isActive = (to: string) => location.pathname === to;
 
@@ -204,7 +204,7 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
         <div className="px-2 pb-2 space-y-1">
           {/* Settings */}
           <SidebarNavItem
-            item={{ icon: Settings, label: '系統管理', to: '/settings' }}
+            item={{ icon: Settings, label: '設定', to: '/settings' }}
             isActive={isActive('/settings')}
             collapsed={collapsed}
           />
@@ -218,9 +218,15 @@ export const Sidebar = ({ mobileOpen, onMobileClose }: SidebarProps) => {
                 onClick={() => setBrandMenuOpen((prev) => !prev)}
                 className="w-full flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-sidebar-hover text-sm transition-colors"
               >
+                <div className="w-6 h-6 rounded-full bg-ph-blue flex items-center justify-center text-white text-xs font-semibold flex-shrink-0">
+                  AC
+                </div>
                 <span className="flex-1 text-left text-ph-text truncate">{selectedBrand}</span>
                 <ChevronDown className={cn('w-3.5 h-3.5 text-ph-muted transition-transform', brandMenuOpen && 'rotate-180')} />
               </button>
+              <div className="px-2 pb-1 pt-0.5">
+                <span className="text-xs text-ph-secondary">Amber Chen</span>
+              </div>
               {brandMenuOpen && (
                 <>
                   <div className="fixed inset-0 z-20" onClick={() => setBrandMenuOpen(false)} />
